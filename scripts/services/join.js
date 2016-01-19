@@ -11,7 +11,6 @@ app.factory('Join', function(FURL, $firebase, $q, Auth, Idea) {
 
 		makeJoin: function(ideaId, join) {
 			var idea_joins = this.joins(ideaId);
-			user.team = true;
 
 			if(idea_joins) {
 				return idea_joins.$add(join);
@@ -50,7 +49,6 @@ app.factory('Join', function(FURL, $firebase, $q, Auth, Idea) {
 
     cancelJoin: function(ideaId, joinId) {
 			return this.getJoin(ideaId, joinId).$remove();
-			return this.user.team = 0;
 		}
 
 	};

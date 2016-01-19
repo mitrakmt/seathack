@@ -15,7 +15,7 @@
 				</div>
 
 				<!-- Idea List -->
-				<a ng-repeat="idea in ideas | filter: {title: searchIdea} | orderBy: 'datetime':true" ng-href="#/browse/{{idea.$id}}">
+				<a ng-repeat="idea in ideas | filter: {title: searchIdea, status: '!cancelled'} | orderBy: 'datetime':true" ng-href="#/browse/{{idea.$id}}">
 					<div class="list-group-item">
 				        <div class="row-picture">
 				            <img class="circle" ng-src="{{idea.gravatar}}">
@@ -65,6 +65,11 @@
 						<img ng-src="{{ selectedIdea.gravatar }}" class="img-circle gravatar">
 						Posted by {{ selectedIdea.name }} -
 						<span am-time-ago="selectedIdea.datetime"></span>&nbsp;
+						<span>
+							<form>
+                <input type="submit" value="TEAM IS FULL" class="btn btn-warning" ng-disabled = "true" ng-hide = "joins && joins.length < 4" >
+							</form>
+						</span>
 					</span>
 				</div>
 

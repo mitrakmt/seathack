@@ -8,9 +8,11 @@ app.controller('IdeaController', function($scope, $location, toaster, Idea, Auth
 		$scope.idea.name = Auth.user.profile.name;
 		$scope.idea.poster = Auth.user.uid;
 
+
 		Idea.createIdea($scope.idea).then(function(ref) {
 			toaster.pop('success', 'Idea created successfully.');
-			$scope.idea = {title: '', description: '', status: 'open', gravatar: '', name: '', poster: ''};
+			$scope.idea = {title: '', description: '', status: 'open', gravatar: '', name: '', poster: '', team: '1'};
+			$location.path('/browse/' + ref.key());
 		});
 	};
 
