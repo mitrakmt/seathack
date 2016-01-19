@@ -130,10 +130,9 @@
 
 								<div class="row" ng-repeat="join in joins">
 									<div class="col-md-10">
-                    <button ng-show="isJoinMaker(join) && isOpen(selectedIdea)" class="btn btn-danger btn-xs" ng-click="cancelJoin(join.$id)">Remove me from this team</button>
-
 										<img ng-src="{{join.gravatar}}" class="img-circle join gravatar">
 										<span>{{join.name}}</span>
+										<button ng-show="isJoinMaker(join) && isOpen(selectedIdea)" class="btn btn-danger btn-xs" ng-click="cancelJoin(join.$id)">Remove me from this team</button>
                     <br><br>
 									</div>
 								</div>
