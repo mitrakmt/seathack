@@ -1,0 +1,197 @@
+<div class="row">
+
+	<!-- Left Panel -->
+	<div class="col-md-offset-1 col-md-4">
+
+		<div class="list-group">
+				<!-- Search -->
+				<div class="form-group">
+					<div class="input-group">
+						<div class="input-group-addon">
+							<span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+						</div>
+			      <input type="text" ng-model="searchIdea" class="form-control" placeholder="Search">
+			    </div>
+				</div>
+
+				<!-- Idea List -->
+				<a ng-repeat="idea in ideas | filter: {title: searchIdea} | orderBy: 'datetime':true" ng-href="#/browse/{{idea.$id}}">
+					<div class="list-group-item">
+				        <div class="row-picture">
+				            <img class="circle" ng-src="{{idea.gravatar}}">
+				        </div>
+				        <div class="row-content">
+
+				            <h4 class="list-group-item-heading">{{idea.title | limitTo:25}}{{ idea.title.length > 25? "..." : ""}}</h4>
+				            <div class="list-group-item-text">
+				            	<span am-time-ago="idea.datetime"></span>
+
+											<div class="voting">
+												<div class="votingWidget">
+					                <div class="votingButton" ng-click="upVote()">
+					                  <i class="glyphicon glyphicon-chevron-up" style='cursor:pointer'></i>
+					                </div>
+					                <div class="badge badge-inverse">
+					                  <div>{{vote}}</div>
+					                </div>
+					                <div class="votingButton" ng-click="downVote()">
+					                  <i class="glyphicon glyphicon-chevron-down" style='cursor:pointer'></i>
+					                </div>
+					              </div>
+											</div>
+
+				            </div>
+									</div>
+			    	<div class="list-group-separator"></div>
+		    	</a>
+				</div>
+		</div>
+
+	</div>
+
+	<!-- Right Panel -->
+	<div class="col-md-6">
+		<div ng-show="listMode">
+			<img src="images/browse.jpg" class="img-responsive img-browse">
+		</div>
+
+		<div ng-show="!listMode">
+
+			<!-- Header -->
+			<div class="row">
+				<div class="col-md-8">
+					<h3><strong>{{ selectedIdea.title }}</strong></h3>
+					<span>
+						<img ng-src="{{ selectedIdea.gravatar }}" class="img-circle gravatar">
+						Posted by {{ selectedIdea.name }} -
+						<span am-time-ago="selectedIdea.datetime"></span>&nbsp;
+					</span>
+				</div>
+
+				<div class="col-md-4 title">
+
+						<div ng-show="isIdeaCreator(selectedIdea) && isOpen(selectedIdea)">
+							<div class="btn-group">
+							    <a href="" class="btn btn-warning">Admin</a>
+							    <a href="" class="btn btn-warning dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></a>
+							    <ul class="dropdown-menu">
+							        <li><a href="" data-toggle="modal" data-target="#ediModal">Edit Idea</a></li>
+							        <li class="divider"></li>
+							        <li><a href="" ng-click="cancelIdea(selectedIdea.$id)">Delete Idea</a></li>
+							    </ul>
+							</div>
+						</div>
+
+            <!-- Join Button -->
+            <div ng-show="isOpen(selectedIdea) && !isIdeaCreator(selectedIdea) && !alreadyJoined">
+              <form ng-submit="makeJoin()">
+                <input type="submit" value="Join This Team" class="btn btn-info" ng-disabled="joins && joins.length > 3 ||  joins.ideaId.uid > 0 || $parent.block">
+              </form>
+            </div>
+
+				</div>
+			</div>
+
+			<br>
+
+			<!-- Description -->
+			<div class="row">
+				<div class="col-md-12">
+					<div class="panel panel-default">
+					    <div class="panel-heading">
+					        <h3 class="panel-title">Idea Description</h3>
+					    </div>
+					    <div class="panel-body">
+					        {{ selectedIdea.description }}
+					    </div>
+					</div>
+				</div>
+			</div>
+
+      <!-- Join Team -->
+			<div class="row">
+				<div class="col-md-12">
+					<div class="panel panel-default">
+
+					    <div class="panel-heading">
+					        <h3 class="panel-title">Team</h3>
+					    </div>
+
+					    <div class="panel-body">
+
+								<div class="title" ng-hide="joins && joins.length > 0">
+									<span>There are four spots left on this team! Interested in the idea? Get involved by joining this team above :)</span>
+								</div>
+
+								<div class="row" ng-repeat="join in joins">
+									<div class="col-md-10">
+                    <button ng-show="isJoinMaker(join) && isOpen(selectedIdea)" class="btn btn-danger btn-xs" ng-click="cancelJoin(join.$id)">Remove me from this team</button>
+
+										<img ng-src="{{join.gravatar}}" class="img-circle join gravatar">
+										<span>{{join.name}}</span>
+                    <br><br>
+									</div>
+								</div>
+					    </div>
+					</div>
+				</div>
+			</div>
+
+      <!-- Comments -->
+    <div class="row">
+      <div class="col-md-12">
+        <div class="panel panel-default">
+
+            <div class="panel-heading">
+                <h3 class="panel-title">Comments</h3>
+            </div>
+
+            <div class="panel-body">
+              <div class="title" ng-hide="comments && comments.length > 0">
+                <span>No comments yet. Let the creator know what you think of their idea!</span>
+              </div><br>
+
+              <div class="row" ng-repeat="com in comments">
+                <div class="col-md-1">
+                  <img ng-src="{{com.gravatar}}" class="img-circle comment gravatar">
+                </div>
+                <div class="col-md-11">
+                  <div class="well well-sm cmt">
+                    <span class="cmt-title">{{com.name}}:</span>
+                    <span class="cmt-time pull-right"><span am-time-ago="com.datetime"></span></span><br>
+
+                    <span>{{com.content}}</span>
+                  </div>
+                </div>
+              </div><br>
+
+              <div class="row" ng-show="isOpen(selectedIdea)">
+                <div class="col-md-12">
+                  <form ng-submit="addComment()">
+
+                    <div class="input-group">
+                      <div class="input-group-addon">
+                        <img ng-src="{{ user.profile.gravatar }}" class="img-circle comment gravatar">
+                      </div>
+                      <input type="text" ng-model="content" cols="10" rows="3" class="form-control" placeholder="Comment here..." required><br>
+                    </div>
+
+                    <span class="pull-right comment">
+                      <input type="submit" class="btn btn-info" value="Comment">
+                    </span>
+                  </form>
+                </div>
+              </div>
+
+            </div>
+
+        </div>
+      </div>
+    </div>
+
+</div>
+
+</div>
+
+<div ng-include="'views/partials/edit.html'"></div>
+<div ng-include="'views/partials/join.html'"></div>

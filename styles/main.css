@@ -1,0 +1,148 @@
+body {
+  background: #F3F3F3;
+}
+
+p {
+  margin: 0 0 10px;
+}
+
+a, a:hover, a:focus {
+  color: #121515;
+}
+
+/* Form */
+
+.auth-forms {
+  max-width:400px;
+  margin:0 auto;
+  padding:1px 25px 25px 25px;
+}
+
+/* Nav Bar */
+
+.navbar {
+  margin-bottom: 0px;
+  background-color: #353CB8;
+}
+
+.title {
+  text-align: center;
+}
+
+.img-circle.gravatar {
+  width: 30px;
+}
+
+/* Panel */
+
+.panel-title {
+  font-weight: bold;
+}
+
+.img-browse {
+  padding-top: 30px;
+}
+
+.panel-success > .panel-heading .badge {
+  color: #0F9D58;
+  background-color: #FFFFFF;
+  font-size: 15px;
+  margin-left: 5px;
+}
+
+.panel-warning > .panel-heading .badge {
+  color: #FF5722;
+  background-color: #FFFFFF;
+  font-size: 15px;
+  margin-left: 5px;
+}
+
+/* Idea List */
+
+.list-group .list-group-item .row-picture img {
+  width: 50px;
+  height: 50px;
+}
+
+.list-group .list-group-item .list-group-item-heading {
+  color: rgba(0,0,0,.77);
+  font-size: 15px;
+  font-weight: bold;
+  line-height: 15px;
+}
+
+.list-group .list-group-item .row-content {
+  float: left;
+  margin-top: 0;
+  width: 40%;
+  width: calc(100% - 160px);
+  height: 60px;
+}
+
+.list-group-item-text {
+  font-size: 12px;
+  margin-bottom: 0;
+  line-height: 1.3;
+}
+
+.open {
+  background-color: #353CB8;
+}
+
+/* Comments */
+
+.well.well-sm.cmt {
+  color: rgba(94, 94, 94, 1);
+  font-size: 14px;
+}
+
+.cmt-title {
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+.cmt-time {
+  font-size: 12px;
+}
+
+.img-circle.comment.gravatar {
+  width: 35px;
+  margin-right: 5px;
+}
+
+.btn-info {
+  background-color: #353CB8;
+}
+
+.btn-info:not(.btn-link):not(.btn-flat) {
+  background-color: #353CB8;
+}
+
+.panel-info .panel-heading {
+  background-color: #353CB8;
+}
+
+.voting {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    float: right;
+    top: 0;
+}
+
+/* Voting */
+
+.votingWidget {
+  height: 64px;
+}
+
+.votingButton {
+  cursor:pointer;
+}
+
+.well-title {
+  margin-top: 0px;
+}
