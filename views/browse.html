@@ -15,7 +15,7 @@
 				</div>
 
 				<!-- Idea List -->
-				<a ng-repeat="idea in ideas | filter: {title: searchIdea, status: '!cancelled'} | orderBy: 'datetime':true" ng-href="#/browse/{{idea.$id}}">
+				<a ng-repeat="idea in ideas | filter: {title: searchIdea} | orderBy: 'datetime':true" ng-href="#/browse/{{idea.$id}}">
 					<div class="list-group-item">
 				        <div class="row-picture">
 				            <img class="circle" ng-src="{{idea.gravatar}}">
@@ -24,21 +24,23 @@
 
 				            <h4 class="list-group-item-heading">{{idea.title | limitTo:25}}{{ idea.title.length > 25? "..." : ""}}</h4>
 				            <div class="list-group-item-text">
-				            	<span am-time-ago="idea.datetime"></span>
+											<span class="list-group-item-text">{{idea.description | limitTo:90}}{{ idea.description.length > 90? "..." : ""}}</span>
 
+										<!--
 											<div class="voting">
 												<div class="votingWidget">
 					                <div class="votingButton" ng-click="upVote()">
 					                  <i class="glyphicon glyphicon-chevron-up" style='cursor:pointer'></i>
 					                </div>
+
 					                <div class="badge badge-inverse">
 					                  <div>{{vote}}</div>
 					                </div>
 					                <div class="votingButton" ng-click="downVote()">
 					                  <i class="glyphicon glyphicon-chevron-down" style='cursor:pointer'></i>
 					                </div>
-					              </div>
-											</div>
+												</div>
+											</div> -->
 
 				            </div>
 									</div>

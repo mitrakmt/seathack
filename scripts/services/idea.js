@@ -34,6 +34,15 @@ app.factory('Idea', function(FURL, $firebase, Auth) {
 
 		isOpen: function(idea) {
 			return idea.status === "open";
+		},
+
+    closeIdea: function(ideaId) {
+			var t = this.getIdea(ideaId);
+			return t.$update({status: "full"});
+		},
+
+		isClosed: function(idea) {
+			return idea.status === "full";
 		}
 	};
 

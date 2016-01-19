@@ -75,7 +75,7 @@ a, a:hover, a:focus {
   float: left;
   margin-top: 0;
   width: 40%;
-  width: calc(100% - 160px);
+  width: calc(100% - 130px);
   height: 60px;
 }
 
