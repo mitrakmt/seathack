@@ -65,11 +65,6 @@
 						<img ng-src="{{ selectedIdea.gravatar }}" class="img-circle gravatar">
 						Posted by {{ selectedIdea.name }} -
 						<span am-time-ago="selectedIdea.datetime"></span>&nbsp;
-						<span>
-							<form>
-                <input type="submit" value="TEAM IS FULL" class="btn btn-warning" ng-disabled = "true" ng-hide = "joins && joins.length < 4" >
-							</form>
-						</span>
 					</span>
 				</div>
 
@@ -82,16 +77,19 @@
 							    <ul class="dropdown-menu">
 							        <li><a href="" data-toggle="modal" data-target="#ediModal">Edit Idea</a></li>
 							        <li class="divider"></li>
-							        <li><a href="" ng-click="cancelIdea(selectedIdea.$id)">Delete Idea</a></li>
+							        <li><a href="" ng-click = "cancelIdea(selectedIdea.$id)">Delete Idea</a></li>
 							    </ul>
 							</div>
 						</div>
 
             <!-- Join Button -->
-            <div ng-show="isOpen(selectedIdea) && !isIdeaCreator(selectedIdea) && !alreadyJoined">
+            <div ng-show = "isOpen(selectedIdea) && !isIdeaCreator(selectedIdea) && !alreadyJoined">
               <form ng-submit="makeJoin()">
-                <input type="submit" value="Join This Team" class="btn btn-info" ng-disabled="joins && joins.length > 3 ||  joins.ideaId.uid > 0 || $parent.block">
+                <input type="submit" value="Join This Team" class="btn btn-info" ng-disabled = "joins && joins.length > 3 || joins.ideaId.uid > 0 || $parent.block" ng-hide = "joins && joins.length > 3">
               </form>
+							<form>
+                <input value="TEAM IS FULL" class="btn btn-warning" ng-disabled = "true" ng-hide = "joins && joins.length < 4" >
+							</form>
             </div>
 
 				</div>
