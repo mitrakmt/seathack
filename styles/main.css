@@ -22,7 +22,7 @@ a, a:hover, a:focus {
 
 .navbar {
   margin-bottom: 0px;
-  background-color: #353CB8;
+  background-color: #3F51B5;
 }
 
 .title {
@@ -44,14 +44,14 @@ a, a:hover, a:focus {
 }
 
 .panel-success > .panel-heading .badge {
-  color: #0F9D58;
+  color: #81C784;
   background-color: #FFFFFF;
   font-size: 15px;
   margin-left: 5px;
 }
 
 .panel-warning > .panel-heading .badge {
-  color: #FF5722;
+  color: #7986CB;
   background-color: #FFFFFF;
   font-size: 15px;
   margin-left: 5px;
@@ -86,7 +86,7 @@ a, a:hover, a:focus {
 }
 
 .open {
-  background-color: #353CB8;
+  background-color: #7986CB;
 }
 
 /* Comments */
@@ -111,15 +111,15 @@ a, a:hover, a:focus {
 }
 
 .btn-info {
-  background-color: #353CB8;
+  background-color: #7986CB;
 }
 
 .btn-info:not(.btn-link):not(.btn-flat) {
-  background-color: #353CB8;
+  background-color: #7986CB;
 }
 
 .panel-info .panel-heading {
-  background-color: #353CB8;
+  background-color: #7986CB;
 }
 
 .voting {
