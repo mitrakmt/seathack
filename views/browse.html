@@ -57,9 +57,9 @@
 				<div class="col-md-4 title">
 
 						<div ng-show="isIdeaCreator(selectedIdea) && isOpen(selectedIdea)">
-							<div class="md-button-group">
-							    <a href="" class="md-button-warning">Admin</a>
-							    <a href="" class="md-button-warning dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></a>
+							<div class="md-button-warning md-raised">
+							    <a href="" class="md-button-warning md-raised">Admin</a>
+							    <a href="" class="md-button-warning md-raised dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></a>
 							    <ul class="dropdown-menu">
 							        <li><a href="" data-toggle="modal" data-target="#ediModal">Edit Idea</a></li>
 							        <li class="divider"></li>
@@ -71,7 +71,7 @@
             <!-- Join Button -->
             <div ng-show = "isOpen(selectedIdea) && !isIdeaCreator(selectedIdea) && !alreadyJoined">
               <form ng-submit="makeJoin()">
-                <input type="submit" value="Join This Team" class="md-button-info" ng-disabled = "joins && joins.length > 3 || joins.ideaId.uid > 0 || $parent.block" ng-hide = "joins && joins.length > 3">
+                <input type="submit" value="Join This Team" class="md-button-warning md-raised" ng-disabled = "joins && joins.length > 3 || joins.ideaId.uid > 0 || $parent.block" ng-hide = "joins && joins.length > 3">
               </form>
 							<form>
                 <input value="TEAM IS FULL" class="md-button-warning" ng-disabled = "true" ng-hide = "joins && joins.length < 4" >
@@ -122,7 +122,7 @@
 										<img ng-src="{{join.gravatar}}" class="img-circle join gravatar">
 										<span>{{join.name}}</span>
 
-										<button ng-show="isJoinMaker(join) && isOpen(selectedIdea)" class="md-button-danger btn-xs" ng-click="cancelJoin(join.$id)">Remove me from this team</button>
+										<md-button ng-show="isJoinMaker(join) && isOpen(selectedIdea)" class="md-raised md-button-warning" ng-click="cancelJoin(join.$id)">Remove me from this team</md-button>
                     <br>
 									</div>
 								</div>
@@ -171,7 +171,7 @@
                     </div>
 
                     <span class="pull-right comment">
-                      <input type="submit" class="md-button-info" value="Comment">
+                      <input type="submit" class="md-button-warning md-raised" value="Comment">
                     </span>
                   </form>
                 </div>
