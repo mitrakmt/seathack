@@ -10,6 +10,15 @@ var app = angular
     'angularMoment'
   ])
   .constant('FURL', 'https://seathack.firebaseio.com/')
+  .run(function($rootScope, $location) {
+    $rootScope.$on("$routeChangeError", function(event, next, previous, error) {
+      // We can catch the error thrown when the $requireAuth promise is rejected
+      // then redirect the user back to login
+      if (error === "AUTH_REQUIRED") {
+        $location.path("/login");
+      }
+    });
+  })
   .config(function ($routeProvider) {
     $routeProvider
       .when('/', {
@@ -33,6 +42,15 @@ var app = angular
       })
       .when('/home', {
         templateUrl: 'views/home.html'
+      })
+      .when('/profile', {
+        templateUrl: 'views/profile.html',
+        controller: 'ProfileController',
+        resolve: {
+          currentAuth: function(Auth) {
+            return Auth.requireAuth();
+          }
+        }
       })
       .otherwise({
         redirectTo: '/'

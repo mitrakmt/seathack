@@ -14,12 +14,15 @@ app.factory('Auth', function(FURL, $firebaseAuth, $firebase) {
         email: user.email,
         gravatar: get_gravatar(user.email, 40),
 				skills: user.skills,
-				university: user.university,
-				team: user.team
+				university: user.university
       };
 
       var profileRef = $firebase(ref.child('profile'));
       return profileRef.$set(uid, profile);
+    },
+
+		getProfile: function(uid) {
+      return $firebase(ref.child('profile').child(uid)).$asObject();
     },
 
     login: function(user) {
@@ -29,7 +32,7 @@ app.factory('Auth', function(FURL, $firebaseAuth, $firebase) {
     },
 
     register: function(user) {
-      return auth.$createUser({email: user.email, password: user.password, skills: user.skills, university: user.university, team: user.team})
+      return auth.$createUser({email: user.email, password: user.password, skills: user.skills, university: user.university})
         .then(function() {
 			    // authenticate for Firebase permissions
           return Auth.login(user);
@@ -50,6 +53,10 @@ app.factory('Auth', function(FURL, $firebaseAuth, $firebase) {
 
     signedIn: function() {
       return !!Auth.user.provider;
+    },
+
+		requireAuth: function() {
+      return auth.$requireAuth();
     }
 	};
 

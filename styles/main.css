@@ -115,11 +115,11 @@ a, a:hover, a:focus {
 }
 
 .btn-info:not(.btn-link):not(.btn-flat) {
-  background-color: #7986CB;
+  background-color: #3F51B5;
 }
 
 .panel-info .panel-heading {
-  background-color: #7986CB;
+  background-color: #3F51B5;
 }
 
 .voting {

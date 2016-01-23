@@ -50,16 +50,11 @@ app.controller('BrowseController', function($scope, $routeParams, toaster, Idea,
 
 	// --------------- idea ---------------
 
-	$scope.cancelJoin = function(joinId) {
-		Join.cancelJoin($scope.selectedIdea.$id, joinId).then(function() {
-			toaster.pop('success', "You have left the team.");
-
-			// Mark that the current user has left the team.
-			$scope.alreadyJoined = false;
-
-			// Unblock the Join button on Join modal
-			$scope.block = false;
+	$scope.cancelIdea = function(ideaId) {
+		Idea.cancelIdea(ideaId).then(function() {
+			toaster.pop('success', "Idea deleted. :(");
 		});
+		
 	};
 
 	// --------------- COMMENT ---------------
@@ -108,15 +103,5 @@ app.controller('BrowseController', function($scope, $routeParams, toaster, Idea,
 
 		});
 	};
-
-	$scope.upVote = function () {
-			$scope.vote++;
-	};
-
-	$scope.downVote = function () {
-			$scope.vote--;
-	};
-
-	$scope.vote = 0;
 
 });

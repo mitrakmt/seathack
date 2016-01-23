@@ -1,0 +1,21 @@
+<div class="row">
+	<div class="col-md-10 col-md-offset-1">
+		<h2 class="title">Profile</h2><br>
+		<div class="row">
+			<div class="col-md-6">
+				<div class="panel panel-info ">
+				    <div class="panel-heading">
+				        <h3 class="panel-title">Your Idea</h3>
+				    </div>
+				    <div class="panel-body">
+				    	<div ng-if="numPoster === 0"> You haven't joined an idea yet! Click <a href="#/browse">here</a> and find a team :)</div>
+			        <div ng-repeat="idea in ideaPoster">
+			        	<a ng-href="#/browse/{{idea.ideaId}}"> {{idea.title}} </a>
+			        </div>
+				    </div>
+				</div>
+			</div>
+		</div>
+
+	</div>
+</div>
