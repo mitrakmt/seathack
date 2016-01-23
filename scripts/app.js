@@ -7,7 +7,8 @@ var app = angular
     'ngRoute',
     'firebase',
     'toaster',
-    'angularMoment'
+    'angularMoment',
+    'ngMaterial'
   ])
   .constant('FURL', 'https://seathack.firebaseio.com/')
   .run(function($rootScope, $location) {
