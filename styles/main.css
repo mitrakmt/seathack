@@ -110,39 +110,14 @@ a, a:hover, a:focus {
   margin-right: 5px;
 }
 
-.btn-info {
+.md-button-info {
   background-color: #7986CB;
 }
 
-.btn-info:not(.btn-link):not(.btn-flat) {
+.md-button-info:not(.btn-link):not(.btn-flat) {
   background-color: #3F51B5;
 }
 
 .panel-info .panel-heading {
   background-color: #3F51B5;
-}
-
-.voting {
-    -webkit-touch-callout: none;
-    -webkit-user-select: none;
-    -khtml-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-    float: right;
-    top: 0;
-}
-
-/* Voting */
-
-.votingWidget {
-  height: 64px;
-}
-
-.votingButton {
-  cursor:pointer;
-}
-
-.well-title {
-  margin-top: 0px;
 }
