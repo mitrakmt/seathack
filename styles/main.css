@@ -115,7 +115,11 @@ a, a:hover, a:focus {
 }
 
 .md-button-info:not(.btn-link):not(.btn-flat) {
-  background-color: #3F51B5;
+  background-color: #7986CB;
+}
+
+.md-button-warning {
+  background-color: #7986CB !important;
 }
 
 .panel-info .panel-heading {
