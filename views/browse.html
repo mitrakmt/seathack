@@ -10,12 +10,14 @@
 						<div class="input-group-addon">
 							<span class="glyphicon glyphicon-search" aria-hidden="true"></span>
 						</div>
-			      <input type="text" ng-model="searchIdea" class="form-control" placeholder="Search">
+						<md-input-container class="md-block">
+			      	<input type="text" ng-model="searchIdea" class="form-control" placeholder="Search">
+						</md-input-container>
 			    </div>
 				</div>
 
 				<!-- Idea List -->
-				<a ng-repeat="idea in ideas | filter: {title: searchIdea , status: '!deleted'} | orderBy: 'datetime':true && status: +'open'" ng-href="#/browse/{{idea.$id}}">
+				<a ng-repeat="idea in ideas | filter: {title: searchIdea , status: '!deleted'} | orderBy: 'datetime':true" ng-href="#/browse/{{idea.$id}}">
 					<div class="list-group-item">
 				        <div class="row-picture">
 				            <img class="circle" ng-src="{{idea.gravatar}}">
@@ -24,11 +26,13 @@
 
 				            <h4 class="list-group-item-heading">{{idea.title | limitTo:25}}{{ idea.title.length > 25? "..." : ""}}</h4>
 				            <div class="list-group-item-text">
-											<span class="list-group-item-text">{{idea.description | limitTo:85}}{{ idea.description.length > 85? "..." : ""}}</span>
+											<span class="list-group-item-text">{{idea.description | limitTo:83}}{{ idea.description.length > 83? "..." : ""}}</span>
 
 				            </div>
 									</div>
+									<br>
 			    	<div class="list-group-separator"></div>
+						<br>
 		    	</a>
 				</div>
 		</div>
@@ -56,25 +60,29 @@
 
 				<div class="col-md-4 title">
 
-						<div ng-show="isIdeaCreator(selectedIdea) && isOpen(selectedIdea)">
-							<div class="md-button-warning md-raised">
-							    <a href="" class="md-button-warning md-raised">Admin</a>
-							    <a href="" class="md-button-warning md-raised dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></a>
-							    <ul class="dropdown-menu">
-							        <li><a href="" data-toggle="modal" data-target="#ediModal">Edit Idea</a></li>
-							        <li class="divider"></li>
-							        <li><a href="" ng-click = "cancelIdea(selectedIdea.$id)">Delete Idea</a></li>
-							    </ul>
-							</div>
-						</div>
+					<md-menu ng-show="isIdeaCreator(selectedIdea) && isOpen(selectedIdea)">
+            <md-button class="md-raised md-warn brand-color" ng-click="$mdOpenMenu()">
+              Admin
+            </md-button>
+            <md-menu-content>
+              <md-menu-item>
+                <md-button data-toggle="modal" data-target="#ediModal">
+                  Edit Idea
+                </md-button>
+								<md-button ng-click = "cancelIdea(selectedIdea.$id)">
+									Delete Idea
+								</md-button>
+              </md-menu-item>
+						</md-menu-content>
+					</md-menu>
 
             <!-- Join Button -->
             <div ng-show = "isOpen(selectedIdea) && !isIdeaCreator(selectedIdea) && !alreadyJoined">
               <form ng-submit="makeJoin()">
-                <input type="submit" value="Join This Team" class="md-button-warning md-raised" ng-disabled = "joins && joins.length > 3 || joins.ideaId.uid > 0 || $parent.block" ng-hide = "joins && joins.length > 3">
+                <md-button type="submit" value="Join This Team" class="md-raised md-warn brand-color" ng-disabled = "joins && joins.length > 3 || joins.ideaId.uid > 0 || $parent.block" ng-hide = "joins && joins.length > 3">Join This Team</md-button>
               </form>
 							<form>
-                <input value="TEAM IS FULL" class="md-button-warning" ng-disabled = "true" ng-hide = "joins && joins.length < 4" >
+                <md-button value="TEAM IS FULL" class="md-raised md-warn" ng-disabled = "true" ng-hide = "joins && joins.length < 4" >TEAM IS FULL</md-button>
 							</form>
             </div>
 
@@ -86,58 +94,57 @@
 			<!-- Description -->
 			<div class="row">
 				<div class="col-md-12">
-					<div class="panel panel-info">
-					    <div class="panel-heading">
+						<md-card class="panel-info">
+					    <div class="panel-heading brand-color">
 					        <h3 class="panel-title">Idea Description</h3>
-					    </div>
+					    	</div>
 					    <div class="panel-body">
 					        {{ selectedIdea.description }}
 					    </div>
-					</div>
+						</md-card>
 				</div>
 			</div>
 
       <!-- Join Team -->
 			<div class="row">
 				<div class="col-md-12">
-					<div class="panel panel-info">
-
-					    <div class="panel-heading">
-					        <h3 class="panel-title">Team</h3>
-					    </div>
+					<md-card class="panel-info">
+							<div class="panel-heading brand-color">
+									<h3 class="panel-title">Team</h3>
+							</div>
 
 					    <div class="panel-body">
 
 								<div class="title" ng-hide="joins && joins.length > 0">
 									<span>There are four spots left on this team! Interested in the idea? Get involved by joining above :)</span>
 								</div>
+								<br>
 
-								<img ng-src="{{ selectedIdea.gravatar }}" class="img-circle join gravatar">
+								<img ng-src="{{ selectedIdea.gravatar }}" class="img-circle gravatar">
 								<span>{{ selectedIdea.name }}</span>
 
 								<div class="row" ng-repeat="join in joins">
 									<div class="col-md-10">
 
 										<br>
-										<img ng-src="{{join.gravatar}}" class="img-circle join gravatar">
+										<img ng-src="{{join.gravatar}}" class="img-circle gravatar">
 										<span>{{join.name}}</span>
 
-										<md-button ng-show="isJoinMaker(join) && isOpen(selectedIdea)" class="md-raised md-button-warning" ng-click="cancelJoin(join.$id)">Remove me from this team</md-button>
+										<md-button ng-show="isJoinMaker(join) && isOpen(selectedIdea)" class="md-raised md-warn" ng-click="cancelJoin(join.$id)">Leave Team</md-button>
                     <br>
 									</div>
 								</div>
 					    </div>
+						</md-card>
 					</div>
 				</div>
-			</div>
 
       <!-- Comments -->
     <div class="row">
       <div class="col-md-12">
-        <div class="panel panel-info">
-
-            <div class="panel-heading">
-                <h3 class="panel-title">Comments</h3>
+				<md-card class="panel-info">
+						<div class="panel-heading brand-color">
+								<h3 class="panel-title">Comments</h3>
             </div>
 
             <div class="panel-body">
@@ -167,21 +174,23 @@
                       <div class="input-group-addon">
                         <img ng-src="{{ user.profile.gravatar }}" class="img-circle comment gravatar">
                       </div>
-                      <input type="text" ng-model="content" cols="10" rows="3" class="form-control" placeholder="Comment here..." required><br>
-                    </div>
+											<md-input-container class="md-block">
+                      	<input type="text" ng-model="content" cols="10" rows="3" class="form-control" placeholder="Comment here..." required><br>
+											</md-input-container>
+										</div>
 
                     <span class="pull-right comment">
-                      <input type="submit" class="md-button-warning md-raised" value="Comment">
-                    </span>
+                      <md-button type="submit" class="md-warn md-raised brand-color" value="Comment">Comment</md-button>
+
+										</span>
                   </form>
                 </div>
               </div>
 
             </div>
-
+					</md-card>
         </div>
       </div>
-    </div>
 
 </div>
 

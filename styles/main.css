@@ -10,6 +10,10 @@ a, a:hover, a:focus {
   color: #121515;
 }
 
+.brand-color {
+  background-color: #3F51B5 !important;
+}
+
 /* Form */
 
 .auth-forms {
@@ -31,6 +35,7 @@ a, a:hover, a:focus {
 
 .img-circle.gravatar {
   width: 30px;
+  margin-right: 5px;
 }
 
 /* Panel */
@@ -85,10 +90,6 @@ a, a:hover, a:focus {
   line-height: 1.3;
 }
 
-.open {
-  background-color: #7986CB;
-}
-
 /* Comments */
 
 .well.well-sm.cmt {
@@ -108,20 +109,4 @@ a, a:hover, a:focus {
 .img-circle.comment.gravatar {
   width: 35px;
   margin-right: 5px;
-}
-
-.md-button-info {
-  background-color: #7986CB;
-}
-
-.md-button-info:not(.btn-link):not(.btn-flat) {
-  background-color: #7986CB;
-}
-
-.md-button-warning {
-  background-color: #7986CB !important;
-}
-
-.panel-info .panel-heading {
-  background-color: #3F51B5;
 }
