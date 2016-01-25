@@ -54,7 +54,7 @@ app.controller('BrowseController', function($scope, $routeParams, toaster, Idea,
 		Idea.cancelIdea(ideaId).then(function() {
 			toaster.pop('success', "Idea deleted. :(");
 		});
-		
+
 	};
 
 	// --------------- COMMENT ---------------

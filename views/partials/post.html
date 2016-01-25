@@ -1,23 +1,24 @@
-<div class="modal" id="posModal" ng-controller="IdeaController">
+<div class="modal" ng-controller="IdeaController" id="posModal" layout-padding>
   <div class="modal-dialog">
-    <div class="modal-content">
+    <div class="modal-content card">
 
-      <div class="panel panel-info title">
-
-        <div class="panel-heading title">
-          <button type="button"class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-          <h3 class="panel-title">What's your project idea?</h3>
-        </div>
-
-        <div class="panel-body">
-          <form ng-submit="createIdea()">
-            <input type="text" ng-model="idea.title" class="form-control" placeholder="Name your project idea" required><br>
-            <textarea ng-model="idea.description" class="form-control" placeholder="Tell everyone about the problem you want to approach and your project idea :)" required></textarea><br>
-            <input type="submit" class="btn btn-info" value="Create Team">
-          </form>
-        </div>
-
+      <div layout-align="start center" layout="column" class="panel-title brand-color">
+        <h2 class="md-title">What's your project idea?</h2>
       </div>
+
+      <br>
+      <form class="autoScroll popup" ng-submit="createIdea()">
+        <md-input-container class="md-icon-float md-block">
+          <label>Project Name</label>
+          <input type="text" ng-model="idea.title" class="form-control" required>
+        </md-input-container>
+        <md-input-container md-no-float class="md-block">
+          <label>Project Description</label>
+          <textarea ng-model="idea.description" row="3" class="form-control" required></textarea><br>
+        </md-input-container>
+        <input type="submit" value="Publish" class="md-button md-raised brand-color">
+      </form>
+      <br>
 
     </div>
   </div>

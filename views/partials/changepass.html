@@ -1,25 +1,31 @@
-<div class="modal fade" id="pasModal">
+
+
+<div class="modal fade" id="pasModal" ng-controller="AuthController" layout-padding>
   <div class="modal-dialog">
-    <div class="modal-content">
+    <div class="modal-content card">
 
-      <div class="panel panel-info title">
-
-        <div class="panel-heading">
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-          <h3 class="panel-title">Change Password</h3>
-        </div>
-
-        <div class="panel-body">
-          <form ng-submit="changePassword(user)">
-            <input type="email" ng-model="user.email" placeholder="Email" class="form-control" required><br>
-            <input type="password" ng-model="user.oldPass" placeholder="Old Password" class="form-control" required><br>
-            <input type="password" ng-model="user.newPass" placeholder="New Password" class="form-control" required><br>
-            <input type="submit" value="Update" class="btn btn-info">
-          </form>
-        </div>
-
+      <div layout-align="start center" layout="column" class="panel-title brand-color">
+        <h2 class="md-title">Change Password</h2>
       </div>
+
+      <br>
+      <form class="autoScroll popup" ng-submit="changePassword(user)">
+        <md-input-container class="md-block">
+          <label>Email</label>
+          <input type="email" ng-model="user.email" class="form-control" required>
+        </md-input-container>
+        <md-input-container class="md-icon md-block">
+          <label>Old Password</label>
+          <input type="password" ng-model="user.oldPass" class="form-control" required>
+        </md-input-container>
+        <md-input-container class="md-icon md-block">
+          <label>New Password</label>
+          <input type="password" ng-model="user.newPass" class="form-control" required>
+        </md-input-container>
+        <input type="submit" value="Update" class="md-button md-raised brand-color">
+      </form>
+      <br>
+
     </div>
   </div>
-
 </div>
