@@ -15,6 +15,10 @@ a, a:hover, a:focus {
   color: white !important;
 }
 
+.md-primary {
+  color: white !important;
+}
+
 /* Form */
 
 .auth-forms {
@@ -61,6 +65,11 @@ a, a:hover, a:focus {
   background-color: #FFFFFF;
   font-size: 15px;
   margin-left: 5px;
+}
+
+.partial {
+  padding-left: 30px;
+  padding-right: 30px;
 }
 
 /* Idea List */
@@ -110,9 +119,4 @@ a, a:hover, a:focus {
 .img-circle.comment.gravatar {
   width: 35px;
   margin-right: 5px;
-}
-
-.popup {
-  padding-left: 30px;
-  padding-right: 30px;
 }
