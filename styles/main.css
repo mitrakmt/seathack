@@ -72,7 +72,6 @@ a, a:hover, a:focus {
 }
 
 .panel-warning > .panel-heading .badge {
-  color: #7986CB;
   background-color: #FFFFFF;
   font-size: 15px;
   margin-left: 5px;

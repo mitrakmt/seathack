@@ -1,43 +1,33 @@
 <div class="auth-forms title">
   <h2>Register</h2>
-  <form ng-submit="register(user)">
+  <form name="registerForm" ng-submit="register(user)">
 
-    <div class="input-group">
-      <div class="input-group-addon">
-        <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
-      </div>
-      <input type="name" ng-model="user.name" placeholder="Name" class="form-control" required>
-    </div><br>
+      <md-input-container class="md-block" flex-gt-sm>
+        <label>Full Name</label>
+        <input type="name" name="name" ng-model="user.name" required>
+      </md-input-container>
+      <md-input-container class="md-block" flex-gt-sm>
+        <label>Technical Skills</label>
+        <input type="text" name="skills" ng-model="user.skills" required>
+      </md-input-container>
+      <md-input-container class="md-block" flex-gt-sm>
+        <label>University</label>
+        <input type="text" name="university" ng-model="user.university" required>
+      </md-input-container>
+      <md-input-container class="md-block" flex-gt-sm>
+        <label>Email Address</label>
+        <input required type="email" name="emailAddress" ng-model="user.email" ng-pattern="/^.+@.+\..+$/">
+        <div ng-messages="registerForm.email.$error" role="alert">
+         <div ng-message-exp="['required', 'minlength', 'maxlength', 'pattern']">
+           Enter an email address, such as <strong>yourName@gmail.com</strong>.
+         </div>
+       </div>
+      </md-input-container>
+      <md-input-container class="md-block" flex-gt-sm>
+        <label>Password</label>
+        <input ng-model="user.password">
+      </md-input-container>
 
-    <div class="input-group">
-      <div class="input-group-addon">
-        <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
-      </div>
-      <input type="text" ng-model="user.skills" placeholder="Technical Skills (List up to 3)" class="form-control" required>
-    </div><br>
-
-    <div class="input-group">
-      <div class="input-group-addon">
-        <span class="glyphicon glyphicon-book" aria-hidden="true"></span>
-      </div>
-      <input type="text" ng-model="user.university" placeholder="University" class="form-control" required>
-    </div><br>
-
-    <div class="input-group">
-      <div class="input-group-addon">
-        <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>
-      </div>
-      <input type="email" ng-model="user.email" placeholder="Email" class="form-control" required>
-    </div><br>
-
-    <div class="input-group">
-      <div class="input-group-addon">
-        <span class="glyphicon glyphicon-lock" aria-hidden="true"></span>
-      </div>
-      <input type="password" ng-model="user.password" placeholder="Password" class="form-control" required>
-    </div><br>
-
-    <input type="submit" value="Register" class="btn btn-danger">
-
+    <md-button type="submit" class="md-raised md-primary">Register</md-button>
   </form>
 </div>
