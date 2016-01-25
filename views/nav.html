@@ -1,8 +1,9 @@
 <nav class="navbar brand-color" ng-controller="NavController">
   <div class="container-fluid">
-    <div class="navbar-header">
-      <md-button md-no-ink class="md-primary" ng-href="#/home"><strong>SEAT Hackathon</strong></md-button>
-    </div>
+
+    <span ng-href="#/home">
+      <img class="logo" src="../images/seatwhitelogo.jpg" />
+    </span>
 
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 
@@ -27,21 +28,20 @@
 
           <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
             <li>
-              <md-button ng-href="#/profile" md-menu-align-target>
-                <i class="glyphicon glyphicon-user"></i>
-                Profile
+              <md-button ng-href="#/profile" md-menu-align-target class="ddmenu md-raised">
+                <i class="glyphicon glyphicon-user"> Profile</i>
               </md-button>
             </li>
+            <div class="list-group-separator"></div>
             <li>
-              <md-button ng-href="" data-toggle="modal" data-target="#pasModal">
-                <i class="glyphicon glyphicon-lock"></i>
-                Change Password
+              <md-button ng-href="" data-toggle="modal" data-target="#pasModal" class="ddmenu md-raised">
+                <i class="glyphicon glyphicon-lock"> Change Password</i>
               </md-button>
             </li>
+            <div class="list-group-separator"></div>
             <li>
-              <md-button ng-href="" ng-click="logout()">
-                <i class="glyphicon glyphicon-log-out"></i>
-                Logout
+              <md-button ng-href="" ng-click="logout()" class="ddmenu md-raised">
+                <i class="glyphicon glyphicon-log-out"> Logout</i>
               </md-button>
             </li>
           </ul>

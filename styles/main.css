@@ -19,6 +19,12 @@ a, a:hover, a:focus {
   color: white !important;
 }
 
+.logo {
+  height: 47px;
+  width: 65px;
+  float: left;
+}
+
 /* Form */
 
 .auth-forms {
@@ -32,6 +38,11 @@ a, a:hover, a:focus {
 .navbar {
   margin-bottom: 0px;
   background-color: #3F51B5;
+}
+
+.ddmenu li {
+  width: 100%;
+  box-shadow: none;
 }
 
 .title {
