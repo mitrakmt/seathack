@@ -10,5 +10,5 @@ app.controller('NavController', function($scope, $location, Auth, toaster) {
     toaster.pop('success', 'Logged out successfully');
     $location.path('/');
   };
-  
+
 });

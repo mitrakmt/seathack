@@ -1,46 +1,53 @@
-<nav class="navbar navbar-info" ng-controller="NavController">
+<nav class="navbar brand-color" ng-controller="NavController">
   <div class="container-fluid">
     <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-        <span class="sr-only">Toggle Navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a class="navbar-brand" href="#/"><strong>SEAT Hackathon</strong></a>
+      <md-button md-no-ink class="md-primary" ng-href="#/home"><strong>SEAT Hackathon</strong></md-button>
     </div>
 
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 
       <ul class="nav navbar-nav navbar-left">
-        <li><a ng-href="#/">Home</a></li>
+        <md-button md-no-ink class="md-primary" ng-href="#/">Home</md-button>
       </ul>
       <ul class="nav navbar-nav navbar-left">
-        <li ng-show="signedIn()"><a href="" data-toggle="modal" data-target="#posModal">Post a Project Idea</a></li>
-        <li><a href="#/browse">Find a Team</a></li>
+        <md-button md-no-ink class="md-primary" ng-href="#/browse">Find a Team</md-button>
+        <md-button md-no-ink class="md-primary" data-toggle="modal" ng-show="signedIn()" data-target="#posModal" ng-href="">Post a Project Idea</md-button>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li ng-hide="signedIn()"><a href="#/login"><strong>Login</strong></a></li>
-        <li ng-hide="signedIn()"><a href="#/register"><strong>Register</strong></a></li>
+        <md-button ng-hide="signedIn()" md-no-ink class="md-primary" ng-href="#/login">Login</md-button>
+        <md-button ng-hide="signedIn()" md-no-ink class="md-primary" ng-href="#/register">Register</md-button>
 
-        <li ng-show="signedIn()" class="dropdown">
-          <a href="" class="dropdown-toggle" data-toggle="dropdown">
+        <div ng-show="signedIn()">
+          <button class="md-button brand-color dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
             <img ng-src="{{currentUser.profile.gravatar}}" class="img-circle gravatar">
             &nbsp;
             {{currentUser.profile.name}}
             <span class="mdi-navigation-expand-more"></span>
-          </a>
-          <ul class="dropdown-menu">
-            <li><a href="#/profile">
-              <i class="glyphicon glyphicon-user"></i> Profile</a></li>
-            <li><a href="" data-toggle="modal" data-target="#pasModal">
-              <i class="glyphicon glyphicon-lock"></i> Change Password</a></li>
-            <li><a href="" ng-click="logout()">
-              <i class="glyphicon glyphicon-log-out"></i> Logout</a></li>
-          </ul>
-        </li>
-      </ul>
+          </button>
 
+          <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+            <li>
+              <md-button ng-href="#/profile" md-menu-align-target>
+                <i class="glyphicon glyphicon-user"></i>
+                Profile
+              </md-button>
+            </li>
+            <li>
+              <md-button ng-href="" data-toggle="modal" data-target="#pasModal">
+                <i class="glyphicon glyphicon-lock"></i>
+                Change Password
+              </md-button>
+            </li>
+            <li>
+              <md-button ng-href="" ng-click="logout()">
+                <i class="glyphicon glyphicon-log-out"></i>
+                Logout
+              </md-button>
+            </li>
+          </ul>
+        </div>
+
+    </ul>
     </div>
   </div>
 
