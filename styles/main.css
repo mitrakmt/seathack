@@ -12,6 +12,7 @@ a, a:hover, a:focus {
 
 .brand-color {
   background-color: #3F51B5 !important;
+  color: white !important;
 }
 
 /* Form */
@@ -109,4 +110,9 @@ a, a:hover, a:focus {
 .img-circle.comment.gravatar {
   width: 35px;
   margin-right: 5px;
+}
+
+.popup {
+  padding-left: 30px;
+  padding-right: 30px;
 }
