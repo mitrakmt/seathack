@@ -50,7 +50,7 @@
 			<!-- Header -->
 			<div class="row">
 				<div class="col-md-8">
-					<h3><strong>{{ selectedIdea.title }}</strong></h3>
+					<h3><strong>{{ selectedIdea.title }}</strong><span class="glyphicon glyphicon-fire popular" ng-show="joins && joins.length > 1"></span></h3>
 					<span>
 						<img ng-src="{{ selectedIdea.gravatar }}" class="img-circle gravatar">
 						Posted by {{ selectedIdea.name }} -
@@ -118,20 +118,25 @@
 								<div class="title" ng-hide="joins && joins.length > 0">
 									<span>There are four spots left on this team! Interested in the idea? Get involved by joining above :)</span>
 								</div>
-								<br>
 
-								<img ng-src="{{ selectedIdea.gravatar }}" class="img-circle gravatar">
-								<span>{{ selectedIdea.name }}</span>
+								<span class="row">
+									<img ng-src="{{ selectedIdea.gravatar }}" class="img-circle gravatar teamimage">
+									<span class="teamname">{{ selectedIdea.name }}</span>
+								</span>
 
-								<div class="row" ng-repeat="join in joins">
-									<div class="col-md-10">
+								<div style="margin-top:-20px;">
+									<div class="row" ng-repeat="join in joins">
+										<div class="col-md-10">
 
-										<br>
-										<img ng-src="{{join.gravatar}}" class="img-circle gravatar">
-										<span>{{join.name}}</span>
+											<br />
+											<img ng-src="{{join.gravatar}}" class="img-circle gravatar teamimage">
+											<span class="teamname">{{join.name}}</span>
 
-										<md-button ng-show="isJoinMaker(join) && isOpen(selectedIdea)" class="md-raised md-warn" ng-click="cancelJoin(join.$id)">Leave Team</md-button>
-                    <br>
+											<div>
+												<md-button ng-show="isJoinMaker(join) && isOpen(selectedIdea)" style="margin-top: -27px;" class="md-raised md-warn" ng-click="cancelJoin(join.$id)">Leave Team</md-button>
+											</div>
+											<br>
+										</div>
 									</div>
 								</div>
 					    </div>
