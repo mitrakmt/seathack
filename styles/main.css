@@ -19,6 +19,18 @@ a, a:hover, a:focus {
   color: white !important;
 }
 
+.md-button {
+  color : currentColor;
+}
+
+.md-warn:hover {
+  background-color: #FF6020;
+  color: white;
+}
+.md-button:not([disabled]):hover {
+  background-color: #FF6020;
+}
+
 .logo {
   height: 47px;
   width: 65px;
