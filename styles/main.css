@@ -130,3 +130,8 @@ a, a:hover, a:focus {
   width: 35px;
   margin-right: 5px;
 }
+
+md-card:hover {
+  transition: all .3s cubic-bezier(.55, 0, .55, .2);
+  -webkit-box-shadow: rgba(0, 0, 0, 0.258824) 0px 2px 10px 0px;
+}
