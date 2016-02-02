@@ -1,21 +1,42 @@
 <div class="row">
 	<div class="col-md-10 col-md-offset-1">
-		<h2 class="title">Profile</h2><br>
+		<h2 class="title">{{user.name}}</h2><br>
+		<h3>{{user.university}}</h3>
+		<h3>{{skills}}</h3>
 		<div class="row">
-			<div class="col-md-6">
-				<div class="panel panel-info ">
-				    <div class="panel-heading">
-				        <h3 class="panel-title">Your Idea</h3>
-				    </div>
-				    <div class="panel-body">
-				    	<div ng-if="numPoster === 0"> You haven't joined an idea yet! Click <a href="#/browse">here</a> and find a team :)</div>
-			        <div ng-repeat="idea in ideaPoster">
-			        	
-			        </div>
-				    </div>
-				</div>
+			<div class="col-md-12">
+				<md-card>
+				<md-card-title>
+					<md-card-title-text>
+						<span class="md-headline">{{user.team}}</span>
+					</md-card-title-text>
+				</md-card-title>
+				<md-card-actions layout="row" layout-align="end center">
+					<md-button class="md-raised md-warn">Leave Team</md-button>
+				</md-card-actions>
+			</md-card>
 			</div>
 		</div>
-
+		<!-- ng-repeat here -->
+		<div class="row">
+			<div class="col-md-6">
+				<md-card>
+        <md-card-title>
+          <md-card-title-text>
+            <span class="md-headline">{{idea.name}}</span>
+          </md-card-title-text>
+        </md-card-title>
+        <md-card-content>
+          <p>
+            {{idea.description}}
+          </p>
+        </md-card-content>
+				<md-card-actions layout="row" layout-align="end center">
+					<md-button class="md-raised">Delete</md-button>
+					<md-button class="md-raised md-primary">Share Your Idea</md-button>
+				</md-card-actions>
+      </md-card>
+			</div>
+		</div>
 	</div>
 </div>
