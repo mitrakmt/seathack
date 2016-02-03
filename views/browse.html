@@ -17,21 +17,19 @@
 				</div>
 
 				<!-- Idea List -->
-				<a ng-repeat="idea in ideas | filter: {title: searchIdea , status: '!deleted'} | orderBy: 'datetime':true" ng-href="#/browse/{{idea.$id}}">
+				<a ng-repeat="idea in ideas | filter: {title: searchIdea , status: '!deleted' || '!closed'} | orderBy: 'datetime':true" ng-href="#/browse/{{idea.$id}}">
 					<div class="list-group-item">
 				        <div class="row-picture">
-				            <img class="circle" ng-src="{{idea.gravatar}}">
+				          <img class="circle" ng-src="{{idea.gravatar}}">
 				        </div>
 				        <div class="row-content">
-
-				            <h4 class="list-group-item-heading">{{idea.title | limitTo:25}}{{ idea.title.length > 25? "..." : ""}}</h4>
-				            <div class="list-group-item-text">
-											<span class="list-group-item-text">{{idea.description | limitTo:83}}{{ idea.description.length > 83? "..." : ""}}</span>
-
-				            </div>
-									</div>
-									<br>
-			    	<div class="list-group-separator"></div>
+			            <h4 class="list-group-item-heading">{{idea.title | limitTo:25}}{{ idea.title.length > 25? "..." : ""}}</h4>
+			            <div class="list-group-item-text">
+										<span class="list-group-item-text">{{idea.description | limitTo:83}}{{ idea.description.length > 83? "..." : ""}}</span>
+			            </div>
+								</div>
+								<br>
+			    		<div class="list-group-separator"></div>
 						<br>
 		    	</a>
 				</div>
@@ -60,26 +58,28 @@
 
 				<div class="col-md-4 title">
 
-					<md-menu ng-show="isIdeaCreator(selectedIdea) && isOpen(selectedIdea)">
-            <md-button class="md-raised md-warn brand-color" ng-click="$mdOpenMenu()">
+					<div ng-show="isIdeaCreator(selectedIdea) && isOpen(selectedIdea)">
+            <md-button class="md-raised brand-color dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
               Admin
             </md-button>
-            <md-menu-content>
-              <md-menu-item>
+            <ul class="dropdown-menu ddmenu" aria-labelledby="dropdownMenu2">
+              <li>
                 <md-button data-toggle="modal" data-target="#ediModal">
                   Edit Idea
                 </md-button>
+							</li>
+							<li>
 								<md-button ng-click = "cancelIdea(selectedIdea.$id)">
 									Delete Idea
 								</md-button>
-              </md-menu-item>
-						</md-menu-content>
-					</md-menu>
+							</li>
+						</ul>
+					</div>
 
             <!-- Join Button -->
-            <div ng-show = "isOpen(selectedIdea) && !isIdeaCreator(selectedIdea) && !alreadyJoined">
+            <div ng-show = "isOpen(selectedIdea) && !isIdeaCreator(selectedIdea) && !alreadyJoined" ng-controller="IdeaController">
               <form ng-submit="makeJoin()">
-                <md-button type="submit" value="Join This Team" class="md-raised md-warn brand-color" ng-disabled = "joins && joins.length > 3 || joins.ideaId.uid > 0 || $parent.block" ng-hide = "joins && joins.length > 3">Join This Team</md-button>
+                <md-button type="submit" ng-click="plusTeam(selectedIdea.$id)" value="Join This Team" class="md-raised md-warn brand-color" ng-disabled = "joins && joins.length > 3 || user.profile.hasTeam === true || joins.ideaId.uid > 0 || $parent.block" ng-hide = "joins && joins.length > 3">Join This Team</md-button>
               </form>
 							<form>
                 <md-button value="TEAM IS FULL" class="md-raised md-warn" ng-disabled = "true" ng-hide = "joins && joins.length < 4" >TEAM IS FULL</md-button>
@@ -132,9 +132,9 @@
 											<img ng-src="{{join.gravatar}}" class="img-circle gravatar teamimage">
 											<span class="teamname">{{join.name}}</span>
 
-											<div>
-												<md-button ng-show="isJoinMaker(join) && isOpen(selectedIdea)" style="margin-top: -27px;" class="md-warn" ng-click="cancelJoin(join.$id)">Leave Team</md-button>
-											</div>
+											<span>
+												<md-button ng-show="isJoinMaker(join) && isOpen(selectedIdea)" style="margin-top: -27px; margin-bottom: -15px;" class="md-warn" ng-click="minusTeam(selectedIdea.$id).then(cancelJoin(join.$id))">Leave Team</md-button>
+											</span>
 											<br>
 										</div>
 									</div>
@@ -186,7 +186,6 @@
 
                     <span class="pull-right comment">
                       <md-button type="submit" class="md-warn md-raised brand-color" value="Comment">Comment</md-button>
-
 										</span>
                   </form>
                 </div>
@@ -194,6 +193,7 @@
 
             </div>
 					</md-card>
+					<br>
         </div>
       </div>
 

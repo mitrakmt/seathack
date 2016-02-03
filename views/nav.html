@@ -20,27 +20,28 @@
 
         <div ng-show="signedIn()">
           <button class="md-button brand-color dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+
             <img ng-src="{{currentUser.profile.gravatar}}" class="img-circle gravatar">
             &nbsp;
             {{currentUser.profile.name}}
             <span class="mdi-navigation-expand-more"></span>
           </button>
 
-          <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+          <ul class="dropdown-menu ddmenu" aria-labelledby="dropdownMenu1">
             <li>
-              <md-button ng-href="#/profile" md-menu-align-target class="ddmenu md-raised">
+              <md-button ng-href="#/profile" md-menu-align-target class="ddmenu">
                 <i class="glyphicon glyphicon-user"> Profile</i>
               </md-button>
             </li>
             <div class="list-group-separator"></div>
             <li>
-              <md-button ng-href="" data-toggle="modal" data-target="#pasModal" class="ddmenu md-raised">
+              <md-button ng-href="" data-toggle="modal" data-target="#pasModal" class="ddmenu">
                 <i class="glyphicon glyphicon-lock"> Change Password</i>
               </md-button>
             </li>
             <div class="list-group-separator"></div>
             <li>
-              <md-button ng-href="" ng-click="logout()" class="ddmenu md-raised">
+              <md-button ng-href="" ng-click="logout()" class="ddmenu">
                 <i class="glyphicon glyphicon-log-out"> Logout</i>
               </md-button>
             </li>

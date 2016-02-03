@@ -52,7 +52,21 @@ app.controller('BrowseController', function($scope, $routeParams, toaster, Idea,
 
 	$scope.cancelIdea = function(ideaId) {
 		Idea.cancelIdea(ideaId).then(function() {
-			toaster.pop('success', "Idea deleted. :(");
+			toaster.pop('success', "Your idea has been deleted.");
+		});
+
+	};
+
+	$scope.plusTeam = function(ideaId) {
+		Idea.plusTeam(ideaId).then(function() {
+			console.log('Updated Team Count+');
+		});
+
+	};
+
+	$scope.minusTeam = function(ideaId) {
+		Idea.minusTeam(ideaId).then(function() {
+			console.log('Updated Team Count-');
 		});
 
 	};

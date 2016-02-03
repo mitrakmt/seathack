@@ -41,6 +41,16 @@ app.factory('Idea', function(FURL, $firebase, Auth) {
 			return t.$update({status: "full"});
 		},
 
+    plusTeam: function(ideaId) {
+      var m = this.getIdea(ideaId);
+      return m.$update({team: 5});
+    },
+
+    minusTeam: function(ideaId) {
+			var m = this.getIdea(ideaId);
+      return m.$update({team: 1});
+		},
+
 		isClosed: function(idea) {
 			return idea.status === "full";
 		}
