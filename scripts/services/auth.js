@@ -14,8 +14,20 @@ app.factory('Auth', function(FURL, $firebaseAuth, $firebase) {
         email: user.email,
         gravatar: get_gravatar(user.email, 40),
 				skills: user.skills,
-				university: user.university,
-				hasTeam: false
+				university: user.university
+      };
+
+      var profileRef = $firebase(ref.child('profile'));
+      return profileRef.$set(uid, profile);
+    },
+
+		editProfile: function(uid, user) {
+      var profile = {
+        name: user.name,
+        email: user.email,
+        gravatar: get_gravatar(user.email, 40),
+				skills: user.skills,
+				university: user.university
       };
 
       var profileRef = $firebase(ref.child('profile'));
@@ -47,16 +59,6 @@ app.factory('Auth', function(FURL, $firebaseAuth, $firebase) {
     logout: function() {
       auth.$unauth();
     },
-
-		isOnTeam: function(uid) {
-			var o = this.getProfile(uid);
-      return o.$update({hasTeam: 'true'});
-		},
-
-    isNotOnTeam: function(uid) {
-			var o = this.getProfile(uid);
-      return o.$update({hasTeam: 'false'});
-		},
 
 		changePassword: function(user) {
 			return auth.$changePassword({email: user.email, oldPassword: user.oldPass, newPassword: user.newPass});

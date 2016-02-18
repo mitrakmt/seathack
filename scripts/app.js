@@ -14,8 +14,6 @@ var app = angular
   .constant('FURL', 'https://seathack.firebaseio.com/')
   .run(function($rootScope, $location) {
     $rootScope.$on("$routeChangeError", function(event, next, previous, error) {
-      // We can catch the error thrown when the $requireAuth promise is rejected
-      // then redirect the user back to login
       if (error === "AUTH_REQUIRED") {
         $location.path("/login");
       }

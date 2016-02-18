@@ -14,8 +14,34 @@ app.factory('Idea', function(FURL, $firebase, Auth) {
 
 		createIdea: function(idea) {
 			idea.datetime = Firebase.ServerValue.TIMESTAMP;
-			return ideas.$add(idea);
-      $location.path('/browse');
+      return ideas.$add(idea).then(function(newIdea) {
+
+      var obj = {
+					ideaId: newIdea.key(),
+					title: idea.title,
+          description: idea.description
+				};
+
+				return $firebase(ref.child('user_ideas').child(idea.poster)).$push(obj);
+			});
+		},
+
+    createUserIdeas: function(ideaId) {
+			Idea.getIdea(ideaId)
+				.$asObject()
+				.$loaded()
+				.then(function(idea) {
+
+					// Create User-Ideas lookup record for runner
+					var obj = {
+            ideaId: ideaId,
+  					title: idea.title,
+            description: idea.description
+					}
+
+					return $firebase(ref.child('user_joins').child(idea.poster)).$push(obj);
+          return $firebase(ref.child('user_ideas').child(idea.runner)).$push(obj);
+				});
 		},
 
 		editIdea: function(idea) {
@@ -25,7 +51,7 @@ app.factory('Idea', function(FURL, $firebase, Auth) {
 
 		cancelIdea: function(ideaId) {
 			var t = this.getIdea(ideaId);
-			return t.$update({status: "Deleted."});
+			return t.$remove();
 		},
 
 		isCreator: function(idea) {
@@ -36,22 +62,11 @@ app.factory('Idea', function(FURL, $firebase, Auth) {
 			return idea.status === "open";
 		},
 
-    closeIdea: function(ideaId) {
-			var t = this.getIdea(ideaId);
-			return t.$update({status: "full"});
+    isOnTeam: function(idea) {
+			return (user && user.provider && user.uid === idea.runner);
 		},
 
-    plusTeam: function(ideaId) {
-      var m = this.getIdea(ideaId);
-      return m.$update({team: 5});
-    },
-
-    minusTeam: function(ideaId) {
-			var m = this.getIdea(ideaId);
-      return m.$update({team: 1});
-		},
-
-		isClosed: function(idea) {
+    isFull: function(idea) {
 			return idea.status === "full";
 		}
 	};

@@ -1,24 +1,23 @@
 app.controller('AuthController', function($scope, $location, toaster, Auth) {
 
   if(Auth.signedIn()) {
-    $location.path('/browse');
+    $location.path('/');
   }
 
 	$scope.register = function(user) {
     Auth.register(user)
       .then(function() {
-        toaster.pop('success', "Registered! You're on your way to creating change. :)");
+        toaster.pop('success', "Awesome, thanks for registering! :)");
         $location.path('/browse');
       }, function(err) {
         errMessage(err);
       });
   };
 
-
 	$scope.login = function(user) {
      Auth.login(user)
       .then(function() {
-        toaster.pop('success', "Welcome :)");
+        toaster.pop('success', "Welcome back :)");
         $location.path('/browse');
       }, function(err) {
         errMessage(err);

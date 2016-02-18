@@ -39,6 +39,10 @@ app.controller('BrowseController', function($scope, $routeParams, toaster, Idea,
 
 			// Check if the current user is the creator (to display 'leave team' button)
 			$scope.isJoinMaker = Join.isMaker;
+
+			// Check if the current user is on the team of the selected idea
+				$scope.isOnTeam = Idea.isOnTeam;
+
 		}
 
 		// Get list of comments for the selected idea
@@ -48,7 +52,7 @@ app.controller('BrowseController', function($scope, $routeParams, toaster, Idea,
 		$scope.joins = Join.joins(idea.$id);
 	};
 
-	// --------------- idea ---------------
+	// --------------- Idea ---------------
 
 	$scope.cancelIdea = function(ideaId) {
 		Idea.cancelIdea(ideaId).then(function() {
@@ -57,21 +61,7 @@ app.controller('BrowseController', function($scope, $routeParams, toaster, Idea,
 
 	};
 
-	$scope.plusTeam = function(ideaId) {
-		Idea.plusTeam(ideaId).then(function() {
-			console.log('Updated Team Count+');
-		});
-
-	};
-
-	$scope.minusTeam = function(ideaId) {
-		Idea.minusTeam(ideaId).then(function() {
-			console.log('Updated Team Count-');
-		});
-
-	};
-
-	// --------------- COMMENT ---------------
+	// --------------- Comment ---------------
 
 	$scope.addComment = function() {
 		var comment = {
@@ -97,10 +87,10 @@ app.controller('BrowseController', function($scope, $routeParams, toaster, Idea,
 		Join.makeJoin($scope.selectedIdea.$id, join).then(function() {
 			toaster.pop('success', "Awesome! You officially have a team :)");
 
-			// Mark that the current user has joined this team.
+			// Log that current user has already joined
 			$scope.alreadyJoined = true;
 
-			// Disable the "Join Now" button on the modal
+			// Disable the join button
 			$scope.block = true;
 		});
 	};
@@ -116,6 +106,10 @@ app.controller('BrowseController', function($scope, $routeParams, toaster, Idea,
 			$scope.block = false;
 
 		});
+	};
+
+	$scope.acceptJoin = function(joinId, runnerId) {
+		Join.acceptJoin($scope.selectedIdea.$id, joinId, runnerId);
 	};
 
 });

@@ -17,9 +17,8 @@ app.factory('Join', function(FURL, $firebase, $q, Auth, Idea) {
 			}
 		},
 
-		//-----------------------------------------------//
-
-		// This checks if user has already joined idea and inhibits if already joined
+		// This function is to check if the logged-in user already joined this idea.
+		// This is to prevent a user from joining more than 1.
 		isJoined: function(ideaId) {
 
 			if(user && user.provider) {
@@ -49,6 +48,21 @@ app.factory('Join', function(FURL, $firebase, $q, Auth, Idea) {
 
     cancelJoin: function(ideaId, joinId) {
 			return this.getJoin(ideaId, joinId).$remove();
+		},
+
+		acceptJoin: function(ideaId, joinId, runnerId) {
+
+			var o = this.getJoin(ideaId, joinId);
+			return o.$update({open: true})
+				.then(function() {
+
+					var t = Idea.getIdea(ideaId);
+					return t.$update({status: "open", runner: runnerId});
+				})
+				.then(function() {
+
+					return Idea.createUserIdeas(ideaId);
+				});
 		}
 
 	};

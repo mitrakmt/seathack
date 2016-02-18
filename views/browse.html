@@ -19,6 +19,8 @@
 				<!-- Idea List -->
 				<a ng-repeat="idea in ideas | filter: {title: searchIdea , status: '!deleted' || '!closed'} | orderBy: 'datetime':true" ng-href="#/browse/{{idea.$id}}">
 					<div class="list-group-item">
+						<br>
+							<!-- CAN TRANSITION THESE TO CARDS INSTEAD - or could do it just for the text, but probs not -->
 				        <div class="row-picture">
 				          <img class="circle" ng-src="{{idea.gravatar}}">
 				        </div>
@@ -26,9 +28,9 @@
 			            <h4 class="list-group-item-heading">{{idea.title | limitTo:25}}{{ idea.title.length > 25? "..." : ""}}</h4>
 			            <div class="list-group-item-text">
 										<span class="list-group-item-text">{{idea.description | limitTo:83}}{{ idea.description.length > 83? "..." : ""}}</span>
-			            </div>
+									</div>
 								</div>
-								<br>
+								<br><br><br>
 			    		<div class="list-group-separator"></div>
 						<br>
 		    	</a>
@@ -77,14 +79,16 @@
 					</div>
 
             <!-- Join Button -->
-            <div ng-show = "isOpen(selectedIdea) && !isIdeaCreator(selectedIdea) && !alreadyJoined" ng-controller="IdeaController">
-              <form ng-submit="makeJoin()">
-                <md-button type="submit" ng-click="plusTeam(selectedIdea.$id)" value="Join This Team" class="md-raised md-warn brand-color" ng-disabled = "joins && joins.length > 3 || user.profile.hasTeam === true || joins.ideaId.uid > 0 || $parent.block" ng-hide = "joins && joins.length > 3">Join This Team</md-button>
-              </form>
-							<form>
-                <md-button value="TEAM IS FULL" class="md-raised md-warn" ng-disabled = "true" ng-hide = "joins && joins.length < 4" >TEAM IS FULL</md-button>
+						<div ng-show = "isOpen(selectedIdea) && !isIdeaCreator(selectedIdea) && !alreadyJoined" ng-controller="IdeaController">
+							<form ng-submit="makeJoin()">
+									<md-button type="submit" value="Join This Team" class="md-raised md-warn brand-color" ng-disabled = "joins && joins.length > 3 || user.profile.hasTeam === true || joins.ideaId.uid > 0 || $parent.block" ng-hide = "joins && joins.length > 3">Join This Team</md-button>
 							</form>
-            </div>
+
+							<form>
+								<md-button value="TEAM IS FULL" class="md-raised md-warn" ng-disabled = "true" ng-hide = "joins && joins.length < 4">TEAM IS FULL</md-button>
+							</form>
+						</div>
+
 
 				</div>
 			</div>
@@ -116,7 +120,7 @@
 					    <div class="panel-body">
 
 								<div class="title" ng-hide="joins && joins.length > 0">
-									<span>There are four spots left on this team! Interested in the idea? Get involved by joining above :)</span>
+									<span>Interested in the idea? Join now! :)</span>
 								</div>
 
 								<span class="row">
@@ -133,7 +137,8 @@
 											<span class="teamname">{{join.name}}</span>
 
 											<span>
-												<md-button ng-show="isJoinMaker(join) && isOpen(selectedIdea)" style="margin-top: -27px; margin-bottom: -15px;" class="md-warn" ng-click="minusTeam(selectedIdea.$id).then(cancelJoin(join.$id))">Leave Team</md-button>
+												<!-- HAVE TO MAKE isNotValidated(join) FUNCTION and acceptJoin function for validation: ng-click="acceptJoin(join.$id,join.uid)"! -->
+												<md-button ng-show="isJoinMaker(join) && isOpen(selectedIdea)" style="margin-top: -27px; margin-bottom: -15px;" class="md-warn" ng-click="cancelJoin(join.$id)">Leave Team</md-button>
 											</span>
 											<br>
 										</div>
@@ -144,7 +149,7 @@
 					</div>
 				</div>
 
-      <!-- Comments -->
+    <!-- Comments -->
     <div class="row">
       <div class="col-md-12">
 				<md-card class="panel-info">
