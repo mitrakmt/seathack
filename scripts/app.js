@@ -23,6 +23,7 @@ var app = angular
     $routeProvider
       .when('/', {
         templateUrl: 'views/home.html',
+        controller: 'HomeController'
       })
       .when('/login', {
         templateUrl: 'views/login.html',
@@ -41,7 +42,8 @@ var app = angular
         controller: 'BrowseController'
       })
       .when('/home', {
-        templateUrl: 'views/home.html'
+        templateUrl: 'views/home.html',
+        controller: 'HomeController'
       })
       .when('/profile', {
         templateUrl: 'views/profile.html',

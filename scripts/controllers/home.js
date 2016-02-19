@@ -1,4 +1,9 @@
 
+'use strict';
+
+app.controller('HomeController', function($scope, $location) {
+
+
 var $animation_blocks = $('.animation-block');
 var $window = $(window);
 
@@ -24,3 +29,5 @@ function check_if_in_view() {
 
 $window.on('scroll resize', check_if_in_view);
 $window.trigger('scroll');
+
+});

@@ -170,24 +170,16 @@ md-card:hover {
 
 /* Home */
 
-.cover {
-  width: 100%;
-  margin-top: -19px;
-  margin-bottom: 30px;
-  height: 107%;
-  background-position: center center;
-  background-repeat: no-repeat;
-}
-
 .cover2 {
   background-image: url("../images/cover1.jpg");
-  width: 107%;
+  width: 100%;
   margin-top: -40px;
   margin-bottom: 50px;
-  margin-left: -35px;
+  margin-left: -17px;
   position: fixed;
   opacity: .15;
   height: 107%;
+  background-position: center center;
   background-size: cover;
 }
 
@@ -228,6 +220,8 @@ md-card:hover {
   padding-top: 5px;
   text-align: center;
   background: transparent;
+  width: 103%;
+  margin-left: -20px;
 }
 
 .icons {
@@ -255,7 +249,7 @@ md-card:hover {
   background: -o-linear-gradient(black, #6292F0);
   background: -moz-linear-gradient(black, #6292F0);
   background: linear-gradient(black, #6292F0);
-  background-size: cover;
+  background-position: center center;
 }
 .bg-2 {
   width: 103%;
