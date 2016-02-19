@@ -174,16 +174,23 @@ md-card:hover {
   width: 100%;
   margin-top: -19px;
   margin-bottom: 30px;
+  height: 107%;
+  background-position: center center;
+  background-repeat: no-repeat;
 }
 
 .cover2 {
+  background-image: url("../images/cover1.jpg");
   width: 107%;
   margin-top: -40px;
-  margin-bottom: 30px;
+  margin-bottom: 50px;
   margin-left: -35px;
   position: fixed;
   opacity: .15;
+  height: 107%;
+  background-size: cover;
 }
+
 
 .sponsor {
   width: 15%;
@@ -236,7 +243,7 @@ md-card:hover {
 /* Background */
 
 .bg-1 {
-  width: 105%;
+  width: 103%;
   height: 100%;
   padding: 100px;
   padding-top: 200px;
@@ -248,9 +255,10 @@ md-card:hover {
   background: -o-linear-gradient(black, #6292F0);
   background: -moz-linear-gradient(black, #6292F0);
   background: linear-gradient(black, #6292F0);
+  background-size: cover;
 }
 .bg-2 {
-  width: 105%;
+  width: 103%;
   height: 100%;
   padding: 100px;
   margin: none;
@@ -259,9 +267,10 @@ md-card:hover {
   background: -o-linear-gradient(#6292F0, #3c3Da5);
   background: -moz-linear-gradient(#6292F0, #3c3Da5);
   background: linear-gradient(#6292F0, #3c3Da5);
+  background-size: cover;
 }
 .bg-3 {
-  width: 105%;
+  width: 103%;
   height: 100%;
   padding: 100px;
   margin-right: none;
@@ -272,9 +281,10 @@ md-card:hover {
   background: -o-linear-gradient(#3c3Da5, #6f2d52);
   background: -moz-linear-gradient(#3c3Da5, #6f2d52);
   background: linear-gradient(#3c3Da5, #6f2d52);
+  background-size: cover;
 }
 .bg-4 {
-  width: 105%;
+  width: 103%;
   height: 100%;
   padding: 100px;
   padding-bottom: 250px;
@@ -286,6 +296,7 @@ md-card:hover {
   background: -o-linear-gradient(#6f2d52, #082352);
   background: -moz-linear-gradient(#6f2d52, #082352);
   background: linear-gradient(#6f2d52, #082352);
+  background-size: cover;
 }
 
 .newhome p {
