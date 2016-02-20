@@ -75,13 +75,19 @@ app.controller('BrowseController', function($scope, $routeParams, toaster, Idea,
 		});
 	};
 
+
 	// --------------- Join ---------------
 
-	$scope.makeJoin = function() {
+	$scope.makeJoin = function(uid, user) {
+
+		var profileRef = $firebase(ref.child('profile'));
+
 		var join = {
 			uid: $scope.user.uid,
 			name: $scope.user.profile.name,
-			gravatar: $scope.user.profile.gravatar
+			gravatar: $scope.user.profile.gravatar,
+			skills: $scope.user.skills,
+			university: $scope.user.university
 		};
 
 		Join.makeJoin($scope.selectedIdea.$id, join).then(function() {
@@ -93,6 +99,16 @@ app.controller('BrowseController', function($scope, $routeParams, toaster, Idea,
 			// Disable the join button
 			$scope.block = true;
 		});
+	};
+
+	// ------------- Joined User Modal -------------
+
+	$scope.hoverIn = function(){
+    $scope.hoverEdit = true;
+	};
+
+	$scope.hoverOut = function(){
+	  $scope.hoverEdit = false;
 	};
 
 	$scope.cancelJoin = function(joinId) {

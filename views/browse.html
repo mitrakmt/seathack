@@ -20,19 +20,19 @@
 				<a ng-repeat="idea in ideas | filter: {title: searchIdea , status: '!deleted' || '!closed'} | orderBy: 'datetime':true" ng-href="#/browse/{{idea.$id}}">
 					<div class="list-group-item">
 						<br>
-							<!-- CAN TRANSITION THESE TO CARDS INSTEAD - or could do it just for the text, but probs not -->
-				        <div class="row-picture">
-				          <img class="circle" ng-src="{{idea.gravatar}}">
-				        </div>
-				        <div class="row-content">
-			            <h4 class="list-group-item-heading">{{idea.title | limitTo:25}}{{ idea.title.length > 25? "..." : ""}}</h4>
-			            <div class="list-group-item-text">
-										<span class="list-group-item-text">{{idea.description | limitTo:83}}{{ idea.description.length > 83? "..." : ""}}</span>
-									</div>
-								</div>
-								<br><br><br>
-			    		<div class="list-group-separator"></div>
-						<br>
+							<md-card>
+								<md-content class="idea-card">
+					        <md-content class="row-picture">
+					          <img class="circle" ng-src="{{idea.gravatar}}">
+					        </md-content>
+					        <md-content class="row-content">
+				            <h4 class="idea-card-heading"><strong>{{idea.title | limitTo:25}}{{ idea.title.length > 25? "..." : ""}}</strong></h4>
+				            <md-content class="idea-card-text">
+											<span class="idea-card-text">{{idea.description | limitTo:95}}{{ idea.description.length > 95? "..." : ""}}</span>
+										</md-content>
+									</md-content>
+								</md-content>
+							</md-card>
 		    	</a>
 				</div>
 		</div>
@@ -50,7 +50,8 @@
 			<!-- Header -->
 			<div class="row">
 				<div class="col-md-8">
-					<h3><strong>{{ selectedIdea.title }}</strong><span class="glyphicon glyphicon-fire popular" ng-show="joins && joins.length > 1"></span></h3>
+					<h3><strong>{{ selectedIdea.title }}</strong><span class="glyphicon glyphicon-fire popular" ng-show="joins && joins.length > 1"></span><span ng-show="joins && joins.length > 1" class="popular-text"><a><strong>Trending!</strong></a></span></h3>
+
 					<span>
 						<img ng-src="{{ selectedIdea.gravatar }}" class="img-circle gravatar">
 						Posted by {{ selectedIdea.name }} -
@@ -80,7 +81,7 @@
 
             <!-- Join Button -->
 						<div ng-show = "isOpen(selectedIdea) && !isIdeaCreator(selectedIdea) && !alreadyJoined" ng-controller="IdeaController">
-							<form ng-submit="makeJoin()">
+							<form ng-submit="makeJoin(user)">
 									<md-button type="submit" value="Join This Team" class="md-raised md-warn brand-color" ng-disabled = "joins && joins.length > 3 || user.profile.hasTeam === true || joins.ideaId.uid > 0 || $parent.block" ng-hide = "joins && joins.length > 3">Join This Team</md-button>
 							</form>
 
@@ -104,6 +105,25 @@
 					    	</div>
 					    <div class="panel-body">
 					        {{ selectedIdea.description }}
+					    </div>
+						</md-card>
+				</div>
+			</div>
+
+			<!-- Idea General Info -->
+			<div class="row">
+				<div class="col-md-12">
+						<md-card class="panel-info">
+					    <div class="panel-heading brand-color">
+					      <h3 class="panel-title">Other Information</h3>
+					    </div>
+							<h4 class="small-title"><strong><u>Chosen Stack</u></strong></h4>
+					    <div class="panel-body">
+					        {{ selectedIdea.stack }}
+					    </div>
+							<h4 class="small-title"><strong><u>Skills We Need</u></strong></h4>
+							<div class="panel-body">
+					        {{ selectedIdea.skills }}
 					    </div>
 						</md-card>
 				</div>
@@ -133,8 +153,12 @@
 										<div class="col-md-10">
 
 											<br />
-											<img ng-src="{{join.gravatar}}" class="img-circle gravatar teamimage">
-											<span class="teamname">{{join.name}}</span>
+											<span ng-mouseover="hoverEdit = true" ng-mouseleave="hoverEdit = false">
+												<img ng-src="{{join.gravatar}}" class="img-circle gravatar teamimage">
+												<span class="teamname">{{join.name}}</span>
+											</span>
+
+    									<span class="joined-user-modal" ng-show="hoverEdit"><a>{{join.skills}}</a></span>
 
 											<span>
 												<!-- HAVE TO MAKE isNotValidated(join) FUNCTION and acceptJoin function for validation: ng-click="acceptJoin(join.$id,join.uid)"! -->

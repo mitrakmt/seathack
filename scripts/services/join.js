@@ -38,6 +38,23 @@ app.factory('Join', function(FURL, $firebase, $q, Auth, Idea) {
 
 		},
 
+		createUserJoins: function(joinId) {
+			Join.getJoin(joinId)
+				.$asObject()
+				.$loaded()
+				.then(function(join) {
+
+					// Create User-Joins lookup record for profile
+					var obj = {
+            ideaId: ideaId,
+  					title: idea.title,
+            description: idea.description
+					}
+
+					return $firebase(ref.child('user_joins').child(join.poster)).$push(obj);
+				});
+		},
+
 		isMaker: function(join) {
 			return (user && user.provider && user.uid === join.uid);
 		},

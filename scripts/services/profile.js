@@ -18,6 +18,21 @@
   				});
 
   			return defer.promise;
+		  },
+
+      getJoinsForUser: function(uid) {
+  			var defer = $q.defer();
+
+        $firebase(ref.child('user_joins').child(uid))
+  				.$asArray()
+  				.$loaded()
+  				.then(function(joins) {
+  					defer.resolve(joins);
+  				}, function(err) {
+  					defer.reject();
+  				});
+
+  			return defer.promise;
 		  }
 	};
 

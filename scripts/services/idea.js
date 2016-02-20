@@ -32,14 +32,13 @@ app.factory('Idea', function(FURL, $firebase, Auth) {
 				.$loaded()
 				.then(function(idea) {
 
-					// Create User-Ideas lookup record for runner
+					// Create User-Ideas lookup record for prpofile
 					var obj = {
             ideaId: ideaId,
   					title: idea.title,
             description: idea.description
 					}
 
-					return $firebase(ref.child('user_joins').child(idea.poster)).$push(obj);
           return $firebase(ref.child('user_ideas').child(idea.runner)).$push(obj);
 				});
 		},
