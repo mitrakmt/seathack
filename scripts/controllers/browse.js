@@ -78,16 +78,11 @@ app.controller('BrowseController', function($scope, $routeParams, toaster, Idea,
 
 	// --------------- Join ---------------
 
-	$scope.makeJoin = function(uid, user) {
-
-		var profileRef = $firebase(ref.child('profile'));
-
+	$scope.makeJoin = function() {
 		var join = {
 			uid: $scope.user.uid,
 			name: $scope.user.profile.name,
-			gravatar: $scope.user.profile.gravatar,
-			skills: $scope.user.skills,
-			university: $scope.user.university
+			gravatar: $scope.user.profile.gravatar
 		};
 
 		Join.makeJoin($scope.selectedIdea.$id, join).then(function() {

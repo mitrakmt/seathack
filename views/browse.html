@@ -81,7 +81,7 @@
 
             <!-- Join Button -->
 						<div ng-show = "isOpen(selectedIdea) && !isIdeaCreator(selectedIdea) && !alreadyJoined" ng-controller="IdeaController">
-							<form ng-submit="makeJoin(user)">
+							<form ng-submit="makeJoin()">
 									<md-button type="submit" value="Join This Team" class="md-raised md-warn brand-color" ng-disabled = "joins && joins.length > 3 || user.profile.hasTeam === true || joins.ideaId.uid > 0 || $parent.block" ng-hide = "joins && joins.length > 3">Join This Team</md-button>
 							</form>
 
