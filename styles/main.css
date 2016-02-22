@@ -278,11 +278,23 @@ a, a:hover, a:focus {
   background: transparent;
   width: 103%;
   margin-left: -20px;
+  opacity: 1;
 }
 
 .icons {
   decoration: none;
-  padding: 0.2em;
+  padding: 0.3em;
+}
+
+.md-button {
+  padding: 0;
+  padding-top: 4px;
+}
+
+.md-button.md-fab.md-mini {
+    line-height: 0;
+    width: 40px;
+    height: 40px;
 }
 
 .eventcard {
