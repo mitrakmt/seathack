@@ -41,6 +41,7 @@
 
 	<!-- Right Panel -->
 	<div class="col-md-6">
+		<br>
 		<div ng-show="listMode">
 			<img src="images/browse.jpg" class="img-responsive img-browse">
 		</div>
@@ -50,7 +51,7 @@
 			<!-- Header -->
 			<div class="row">
 				<div class="col-md-8">
-					<h3><strong>{{ selectedIdea.title }}</strong><span class="glyphicon glyphicon-fire popular" ng-show="joins && joins.length > 1"></span><span ng-show="joins && joins.length > 1" ><a><strong>Trending!</strong></a></span></h3>
+					<h3><strong>{{ selectedIdea.title }}</strong><span class="glyphicon glyphicon-fire popular" ng-show="joins && joins.length > 1"><a><strong>Trending!</strong></a></span></h3>
 
 					<span>
 						<img ng-src="{{ selectedIdea.gravatar }}" class="img-circle gravatar">

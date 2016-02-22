@@ -29,6 +29,7 @@ a, a:hover, a:focus {
   z-index: 100;
   opacity: 1;
   font-size: 22px;
+  margin-top: 50px;
   spacing: 10px;
   color: white;
   font-weight: 400;
@@ -87,7 +88,7 @@ a, a:hover, a:focus {
 
 .ddmenu li .md-button:hover {
   background-color: transparent;
-  color: #FF3111;
+  color: #3F51B5;
 }
 
 .title {
@@ -204,6 +205,11 @@ a, a:hover, a:focus {
   height: 107%;
   background-position: center center;
   background-size: cover;
+}
+
+.sponsor-title {
+  margin-top: 90px;
+  margin-bottom: -50px;
 }
 
 .sponsor-miami {
@@ -350,7 +356,9 @@ a, a:hover, a:focus {
   background: linear-gradient(320deg, #e05252 0%, #52e0e0 25%, #FF5722 75%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  margin-top: -30px;
 }
+
 
 .title3 {
   font-size: 4em;
@@ -372,8 +380,7 @@ a, a:hover, a:focus {
 }
 
 .gradient-button:hover {
-  font-weight: 500;
-  padding: 11px;
+  padding: 10px;
   font-size: 2em;
 	border: 2px white solid;
   opacity: 1;
@@ -507,6 +514,11 @@ a, a:hover, a:focus {
       margin-bottom: -20px;
     }
 
+    .sponsor-title {
+      margin-top: 30px;
+      margin-bottom: -0;
+    }
+
 }
 
 @media only screen and (max-width: 500px) {
@@ -609,6 +621,11 @@ a, a:hover, a:focus {
       padding-left: 30px;
       padding-right: 30px;
       margin-top: -10px;
+      margin-bottom: -10px;
+    }
+
+    .sponsor-title {
+      margin-top: 30px;
       margin-bottom: -10px;
     }
 
