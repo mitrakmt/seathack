@@ -10,7 +10,7 @@ app.controller('BrowseController', function($scope, $routeParams, toaster, Idea,
 
 	$scope.listMode = true;
 
-	if($routeParams.ideaId) {
+	if ($routeParams.ideaId) {
 		var idea = Idea.getIdea($routeParams.ideaId).$asObject();
 		$scope.listMode = false;
 		setSelectedIdea(idea);
@@ -50,7 +50,7 @@ app.controller('BrowseController', function($scope, $routeParams, toaster, Idea,
 
 		// Get list of team members for the selected idea
 		$scope.joins = Join.joins(idea.$id);
-	};
+	}
 
 	// --------------- Idea ---------------
 
@@ -122,5 +122,15 @@ app.controller('BrowseController', function($scope, $routeParams, toaster, Idea,
 	$scope.acceptJoin = function(joinId, runnerId) {
 		Join.acceptJoin($scope.selectedIdea.$id, joinId, runnerId);
 	};
+
+	function sortIdeasByJoins() {
+		var allJoins = Joins.allJoins();
+
+		angular.forEach(allJoins, function() {
+			
+		});
+
+		allJoins.sort(function(a, b) {return b-a});
+	}
 
 });
