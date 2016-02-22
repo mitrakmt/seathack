@@ -9,6 +9,10 @@ app.factory('Join', function(FURL, $firebase, $q, Auth, Idea) {
 			return $firebase(ref.child('joins').child(ideaId)).$asArray();
 		},
 
+		allJoins: function() {
+			return $firebase(ref.child('joins').$asArray();
+		},
+
 		makeJoin: function(ideaId, join) {
 			var idea_joins = this.joins(ideaId);
 

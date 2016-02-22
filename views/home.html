@@ -2,16 +2,26 @@
   <md-content flex layout-padding class="backgroundimage"></md-content>
 </div>
 
-<div flex layout-padding style="text-align:center;" class="bg-1 home-page">
+<div layout-padding style="text-align:center;" class="bg-1 home-page">
     <div class="title home-page">
       <h1 class="title2"><strong>Hack For a Cause</strong></h1>
     </div>
     <br>
-    <h2>Sponsored by: </h2>
-    <div class="sponsors" layout-md="row" flex layout-xs="column">
-      <img ng-src="images/msftlogo.png" class="sponsor"/>
-      <span><a ng-href="http://www.seatohio.org"><img ng-src="images/seatwhite.png" class="sponsor"/></a></span>
-      <img ng-src="images/miamilogo.png" class="sponsor"/>
+    <h2 class="sponsor-title">Sponsors: </h2>
+    <div class="sponsors" layout="row" layout-xs="column" layout-align="center center">
+
+      <div flex class="sponsor-microsoft" layout-margin layout-align="center center">
+        <img class="sponsor" ng-src="images/msftlogo.png" />
+      </div>
+
+      <div flex class="sponsor-seat" layout-margin layout-align="center center">
+        <img class="sponsor" ng-src="images/seatwhite.png" />
+      </div>
+
+      <div flex class="sponsor-miami" layout-margin layout-align="center center">
+        <img class="sponsor" ng-src="images/miamilogo.png" />
+      </div>
+
     </div>
 </div>
 
@@ -28,12 +38,13 @@
 </div>
 
 <div class="bg-3">
-  <md-content flex layout-padding style="text-align:center; display:inline-block; background: transparent;" class="home-page cf" layout="row">
+  <md-content style="text-align:center; display:inline; background: transparent;" class="home-page cf" layout="row">
     <h2 class="title2"><strong>Event Schedule</strong></h2>
     <h4>Location: Miami University, Armstrong Student Center</h4>
+    <br>
 
-    <div flex-lg flex-gt-lg="65" layout="row"  layout-xs="column">
-      <div class="eventcard animation-block slide-left schedule" style="background: transparent;">
+    <div layout="row"  layout-sm="column" layout-xs="column">
+      <div flex class="eventcard animation-block slide-left schedule" style="background: transparent;">
           <div class="home-page">
             <h2><strong>Saturday April 22nd</strong></h2>
           </div>
@@ -47,7 +58,9 @@
         </div>
       </div>
 
-      <div class="eventcard animation-block slide-left schedule" style="background: transparent;">
+      <br>
+
+      <div flex class="eventcard animation-block slide-left schedule" style="background: transparent;">
           <div class="home-page">
             <h2><strong>Sunday April 23rd</strong></h2>
           </div>
@@ -65,8 +78,8 @@
 </div>
 
 <div class="bg-4">
-  <div flex layout-padding style="text-align:center;" class="home-page">
-    <h2 class="title3"><strong>Getting Started</strong></h2>
+  <div flex layout-padding layout-margin style="text-align:center;" class="home-page">
+    <h2 class="title3"><strong>Get Started</strong></h2>
     <p>1. Here's the deal: you need to sign up (for free!) to participate in the Hackathon.</p>
     <p>2. Once you click below, you'll see a list of ideas. See one you like? Join the team :)</p>
     <p>3. Have an idea you want to pursue? Click below then post your idea for people to join!</p>

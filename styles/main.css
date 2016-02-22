@@ -26,21 +26,23 @@ a, a:hover, a:focus {
 }
 
 .home-page p {
-  z-index: 2000;
+  z-index: 100;
   opacity: 1;
+  font-size: 22px;
+  spacing: 10px;
   color: white;
-  font-weight: 500;
+  font-weight: 400;
 }
 
 .home-page h2 {
-  z-index: 2000;
+  z-index: 100;
   opacity: 1;
   color: white;
   font-weight: 500;
 }
 
 .home-page h4 {
-  z-index: 2000;
+  z-index: 100;
   opacity: 1;
   color: white;
   font-weight: 500;
@@ -73,7 +75,9 @@ a, a:hover, a:focus {
 .navbar {
   margin-bottom: 0px;
   background-color: #3F51B5;
-  z-index: 2000;
+  z-index: 100;
+  width: 100%;
+  opacity: .9;
 }
 
 .ddmenu li {
@@ -194,9 +198,7 @@ a, a:hover, a:focus {
 .cover2 {
   background-image: url("../images/cover1.jpg");
   width: 100%;
-  margin-top: -40px;
   margin-bottom: 50px;
-  margin-left: -17px;
   position: fixed;
   opacity: .15;
   height: 107%;
@@ -204,16 +206,43 @@ a, a:hover, a:focus {
   background-size: cover;
 }
 
+.sponsor-miami {
+  width: 40%;
+  z-index: 150;
+  opacity: 1;
+  padding: 40px;
+  padding-top: 45px;
+}
+
+.sponsor-seat {
+  width: 50%;
+  z-index: 150;
+}
+
+.sponsor-microsoft {
+  width: 50%;
+  z-index: 150;
+  padding: 40px;
+}
 
 .sponsor {
-  width: 15%;
-  height: auto;
-  display: inline;
+  width: 100%;
+}
+
+.sponsor-block {
+  width: 200px;
+  height: 200px;
+  opacity: .8;
+  background-color: white;
+  margin: 30px;
+  z-index: 100;
 }
 
 .sponsors {
-  display: inline-block;
-  margin-top: -20px;
+  padding: 20px;
+  width: 100%;
+  height: auto;
+  background-color: transparent;
 }
 
 .content-row {
@@ -348,7 +377,7 @@ a, a:hover, a:focus {
   font-size: 2em;
 	border: 2px white solid;
   opacity: 1;
-  z-index: 500;
+  z-index: 100;
 }
 
 .divider {
@@ -388,4 +417,199 @@ a, a:hover, a:focus {
 .animation-block.slide-left.schedule:hover,
 .animation-block.slide-left.schedule:active{
   box-shadow: 0px 1px 6px 0px gray;
+}
+
+
+
+
+
+@media only screen and (max-width: 768px) {
+    .title2 {
+      font-size: 60px;
+    }
+
+    .md-display-4 {
+      font-size: 65px;
+    }
+
+    .md-display-3 {
+      font-size: 40px;
+    }
+
+    .md-display-1 {
+      font-size: 26px;
+    }
+
+    .md-headline {
+      font-size: 20px;
+    }
+
+    .bg-1 {
+      width: 103%;
+      padding: 100px;
+      padding-top: 175px;
+      padding-left: 25px;
+      padding-right: 25px;
+    }
+
+    .bg-2 {
+      width: 103%;
+      padding: 100px;
+      padding-left: 25px;
+      padding-right: 25px;
+    }
+
+    .bg-3 {
+      width: 103%;
+      padding: 100px;
+      padding-left: 25px;
+      padding-right: 25px;
+    }
+
+    .bg-4 {
+      width: 103%;
+      padding: 100px;
+      padding-left: 25px;
+      padding-right: 25px;
+      padding-bottom: 125px;
+    }
+
+    .sponsor-miami {
+      z-index: 150;
+      opacity: 1;
+      padding: 0;
+      padding-top: 15px;
+      min-height: 50px;
+    }
+
+    .sponsor-title {
+      margin-top: 50px;
+      padding-top: 50px;
+    }
+
+    .sponsor-seat {
+      z-index: 150;
+      padding: 0;
+    }
+
+    .sponsor-microsoft {
+      z-index: 150;
+      padding: 0;
+    }
+
+    .sponsor {
+      min-width: 75px;
+      width: 100%;
+      height: 100%;
+      padding-left: 30px;
+      padding-right: 30px;
+      margin-top: -20px;
+      margin-bottom: -20px;
+    }
+
+}
+
+@media only screen and (max-width: 500px) {
+    .title2 {
+      font-size: 45px;
+    }
+
+    .title3 {
+      font-size: 45px;
+    }
+
+    .gradient-button {
+      margin: 0;
+      margin-bottom: 60px;
+      font-size: 1.2em;
+    }
+
+    .eventcard {
+      margin: 0;
+      padding: 30px;
+      width: 100%;
+    }
+
+    .md-display-4 {
+      font-size: 45px;
+    }
+
+    .md-display-3 {
+      font-size: 30px;
+    }
+
+    .md-display-1 {
+      font-size: 18px;
+    }
+
+    .md-headline {
+      font-size: 15px;
+    }
+
+    .link {
+      font-size: 13px;
+    }
+
+    .bg-1 {
+      width: 105%;
+      padding: 45px;
+      padding-top: 175px;
+    }
+
+    .footer {
+      width: 105%;
+    }
+
+    .bg-2 {
+      width: 105%;
+      padding: 45px;
+    }
+
+    .bg-3 {
+      width: 105%;
+      padding: 45px;
+    }
+
+    .bg-4 {
+      width: 105%;
+      padding: 45px;
+      padding-bottom: 100px;
+    }
+
+    .sponsor-miami {
+      width: 100%;
+      z-index: 150;
+      opacity: 1;
+      padding: 0;
+      padding-top: 15px;
+      min-height: 50px;
+    }
+
+    .sponsor-title {
+      margin-top: 50px;
+      padding-top: 50px;
+    }
+
+    .sponsor-seat {
+      width: 100%;
+      z-index: 150;
+      padding: 0;
+    }
+
+    .sponsor-microsoft {
+      width: 100%;
+      z-index: 150;
+      padding: 0;
+    }
+
+    .sponsor {
+      min-width: 75px;
+      width: 100%;
+      height: 100%;
+      padding-left: 30px;
+      padding-right: 30px;
+      margin-top: -10px;
+      margin-bottom: -10px;
+    }
+
 }
