@@ -63,6 +63,8 @@ app.factory('Join', function(FURL, $firebase, $q, Auth, Idea) {
 			return (user && user.provider && user.uid === join.uid);
 		},
 
+// -------------- Delete joins object on team leave ---------
+
 		getJoin: function(ideaId, joinId) {
 			return $firebase(ref.child('joins').child(ideaId).child(joinId));
 		},
@@ -70,6 +72,20 @@ app.factory('Join', function(FURL, $firebase, $q, Auth, Idea) {
     cancelJoin: function(ideaId, joinId) {
 			return this.getJoin(ideaId, joinId).$remove();
 		},
+
+// -------------- Delete user_joins object on team leave validate ---------
+
+	deleteJoin: function(ideaId, joinId, runnerId) {
+
+		var ideaToBeUpdated = this.getJoin(ideaId, joinId);
+		return ideaToBeUpdated.$update({open: true})
+			.then(function() {
+
+				return $firebase(ref.child('user_joins').child(idea.runner)).$remove();
+			});
+	},
+
+// --------------- Add user_joins object on validate -------------
 
 		acceptJoin: function(ideaId, joinId, runnerId) {
 

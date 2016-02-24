@@ -32,7 +32,7 @@ app.factory('Idea', function(FURL, $firebase, Auth) {
 				.$loaded()
 				.then(function(idea) {
 
-					// Create User-Ideas lookup record for prpofile
+					// Create User-Ideas lookup record for profile
 					var obj = {
             ideaId: ideaId,
   					title: idea.title,

@@ -163,9 +163,10 @@
     									<span class="joined-user-modal" ng-show="hoverEdit"><a>{{join.skills}}</a></span>
 
 											<span>
-												<!-- HAVE TO MAKE isNotValidated(join) FUNCTION and acceptJoin function for validation: ng-click="acceptJoin(join.$id,join.uid)"! -->
 												<md-button ng-show ="isJoinMaker(join) && isOpen(selectedIdea) && !isOnTeam(selectedIdea)" style="margin-top: -27px; margin-bottom: -15px;" class="md-warn" ng-click="acceptJoin(join.$id,join.uid)">Validate Team Join</md-button>
-												<md-button ng-show="isJoinMaker(join) && isOnTeam(selectedIdea) && isOpen(selectedIdea)" style="margin-top: -27px; margin-bottom: -15px;" class="md-warn" ng-click="cancelJoin(join.$id)">Leave Team</md-button>
+												<form ng-submit="deleteJoin(join.$id,join.uid)">
+													<md-button ng-show="isJoinMaker(join) && isOnTeam(selectedIdea) && isOpen(selectedIdea)" style="margin-top: -27px; margin-bottom: -15px;" class="md-warn" ng-click="cancelJoin(join.$id)">Leave Team</md-button>
+												</form>
 											</span>
 											<br>
 										</div>
