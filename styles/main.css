@@ -1,5 +1,6 @@
 body {
   background: #F3F3F3;
+  height: auto;
 }
 
 p {
@@ -81,7 +82,7 @@ a, a:hover, a:focus {
   background-color: #3F51B5;
   z-index: 100;
   width: 100%;
-  opacity: .9;
+  opacity: 1;
 }
 
 .ddmenu li {
@@ -102,6 +103,18 @@ a, a:hover, a:focus {
 .img-circle.gravatar {
   width: 30px;
   margin-right: 5px;
+}
+
+.img-circle.profile-gravatar {
+  width: 60px;
+  height: auto;
+  margin-right: 15px;
+  margin-left: 20px;
+}
+
+.how-to-change-your-profile-picture {
+  font-size: 16px;
+  margin-left: 15px;
 }
 
 /* Panel */
@@ -211,8 +224,9 @@ a, a:hover, a:focus {
 }
 
 .sponsor-title {
-  margin-top: 90px;
-  margin-bottom: -50px;
+  padding-top: 50px;
+  margin-bottom: -90px;
+  font-weight: 300;
 }
 
 .sponsor-miami {
@@ -220,18 +234,20 @@ a, a:hover, a:focus {
   z-index: 150;
   opacity: 1;
   padding: 40px;
-  padding-top: 45px;
+  margin-top:-40px;
 }
 
 .sponsor-seat {
   width: 50%;
   z-index: 150;
+  margin-top:-40px;
 }
 
 .sponsor-microsoft {
   width: 50%;
   z-index: 150;
   padding: 40px;
+  margin-top:-40px;
 }
 
 .sponsor {
@@ -290,7 +306,6 @@ a, a:hover, a:focus {
 }
 
 .md-button {
-  padding: 0;
   padding-top: 4px;
 }
 
@@ -499,24 +514,22 @@ a, a:hover, a:focus {
     .sponsor-miami {
       z-index: 150;
       opacity: 1;
-      padding: 0;
+      padding: 15px;
       padding-top: 15px;
       min-height: 50px;
-    }
-
-    .sponsor-title {
-      margin-top: 50px;
-      padding-top: 50px;
+      margin-top:-10px;
     }
 
     .sponsor-seat {
       z-index: 150;
-      padding: 0;
+      padding: 15px;
+      margin-top:-10px;
     }
 
     .sponsor-microsoft {
       z-index: 150;
-      padding: 0;
+      padding: 15px;
+      margin-top:-10px;
     }
 
     .sponsor {
@@ -531,7 +544,7 @@ a, a:hover, a:focus {
 
     .sponsor-title {
       margin-top: 30px;
-      margin-bottom: -0;
+      margin-bottom: 0;
     }
 
 }
@@ -575,6 +588,7 @@ a, a:hover, a:focus {
 
     .link {
       font-size: 13px;
+      color: #3F51B5;
     }
 
     .bg-1 {
@@ -610,6 +624,7 @@ a, a:hover, a:focus {
       padding: 0;
       padding-top: 15px;
       min-height: 50px;
+      margin-top: 35px;
     }
 
     .sponsor-title {
@@ -621,12 +636,14 @@ a, a:hover, a:focus {
       width: 100%;
       z-index: 150;
       padding: 0;
+      margin-top: 35px;
     }
 
     .sponsor-microsoft {
       width: 100%;
       z-index: 150;
       padding: 0;
+      margin-top: 35px;
     }
 
     .sponsor {
@@ -636,11 +653,6 @@ a, a:hover, a:focus {
       padding-left: 30px;
       padding-right: 30px;
       margin-top: -10px;
-      margin-bottom: -10px;
-    }
-
-    .sponsor-title {
-      margin-top: 30px;
       margin-bottom: -10px;
     }
 

@@ -2,6 +2,19 @@
 	<div class="col-md-10 col-md-offset-1">
 		<h1 class="title">{{currentUser.profile.name}}</h1><br>
 		<div class="row">
+			<div class="col-md-12">
+				<md-card class="panel-info">
+					<div class="panel-heading brand-color">
+							<h3 class="panel-title">Profile</h3>
+						</div>
+					<div class="panel-body" layout="row" layout-xs="column">
+						<img ng-src="{{currentUser.profile.gravatar}}" class="img-circle profile-gravatar">
+						<p class="how-to-change-your-profile-picture">To change your profile picture, please visit <a href="http://www.gravatar.com" class="link" target="_blank" style="color: #3F51B5">gravatar.com</a> and click "create your own gravatar". The picture will update shortly after the account is created. :)</p>
+					</div>
+				</md-card>
+			</div>
+		</div>
+		<div class="row">
 			<div class="col-md-6">
 				<md-card class="panel-info">
 					<div class="panel-heading brand-color">

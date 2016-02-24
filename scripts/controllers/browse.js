@@ -86,7 +86,7 @@ app.controller('BrowseController', function($scope, $routeParams, toaster, Idea,
 		};
 
 		Join.makeJoin($scope.selectedIdea.$id, join).then(function() {
-			toaster.pop('success', "Awesome! You officially have a team :)");
+			toaster.pop('success', "Please scroll down and click the Validate Join button below :) ");
 
 			// Log that current user has already joined
 			$scope.alreadyJoined = true;
@@ -127,7 +127,7 @@ app.controller('BrowseController', function($scope, $routeParams, toaster, Idea,
 		var allJoins = Joins.allJoins();
 
 		angular.forEach(allJoins, function() {
-			
+
 		});
 
 		allJoins.sort(function(a, b) {return b-a});

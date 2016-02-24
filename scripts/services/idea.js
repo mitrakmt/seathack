@@ -39,7 +39,7 @@ app.factory('Idea', function(FURL, $firebase, Auth) {
             description: idea.description
 					}
 
-          return $firebase(ref.child('user_ideas').child(idea.runner)).$push(obj);
+          return $firebase(ref.child('user_joins').child(idea.runner)).$push(obj);
 				});
 		},
 
