@@ -9,7 +9,8 @@ var app = angular
     'toaster',
     'angularMoment',
     'ngMaterial',
-    'ngMdIcons'
+    'ngMdIcons',
+    'ngDialog'
   ])
   .constant('FURL', 'https://seathack.firebaseio.com/')
   .run(function($rootScope, $location) {

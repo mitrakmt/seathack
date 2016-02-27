@@ -119,6 +119,14 @@ app.controller('BrowseController', function($scope, $routeParams, toaster, Idea,
 		});
 	};
 
+	$scope.replaceIdea = function(ideaId) {
+		Idea.replaceIdea($scope.selectedIdea.$id);
+	};
+
+	$scope.resetJoin = function(joinId, runnerId) {
+		Join.resetJoin($scope.selectedIdea.$id, joinId, runnerId);
+	};
+
 	$scope.acceptJoin = function(joinId, runnerId) {
 		Join.acceptJoin($scope.selectedIdea.$id, joinId, runnerId);
 	};

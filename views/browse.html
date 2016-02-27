@@ -4,6 +4,8 @@
 	<div class="col-md-offset-1 col-md-4">
 
 		<div class="list-group">
+			<br>
+			<br>
 				<!-- Search -->
 				<div class="form-group">
 					<div class="input-group">
@@ -42,6 +44,7 @@
 	<!-- Right Panel -->
 	<div class="col-md-6">
 		<br>
+		<br>
 		<div ng-show="listMode">
 			<img src="images/browse.jpg" class="img-responsive img-browse">
 		</div>
@@ -51,7 +54,7 @@
 			<!-- Header -->
 			<div class="row">
 				<div class="col-md-8">
-					<h3><strong>{{ selectedIdea.title }}</strong><span class="glyphicon glyphicon-fire popular" ng-show="joins && joins.length > 1"><a><strong>Trending!</strong></a></span></h3>
+					<h3><strong>{{ selectedIdea.title }}</strong><span class="glyphicon glyphicon-fire popular" ng-show="joins && joins.length > 2"><a><strong>Trending!</strong></a></span></h3>
 
 					<span>
 						<img ng-src="{{ selectedIdea.gravatar }}" class="img-circle gravatar">
@@ -73,7 +76,7 @@
                 </md-button>
 							</li>
 							<li>
-								<md-button ng-click = "cancelIdea(selectedIdea.$id)">
+								<md-button ng-click = "replaceIdea(selectedIdea.$id)" data-toggle="modal" data-target="#conModal">
 									Delete Idea
 								</md-button>
 							</li>
@@ -164,9 +167,7 @@
 
 											<span>
 												<md-button ng-show ="isJoinMaker(join) && isOpen(selectedIdea) && !isOnTeam(selectedIdea)" style="margin-top: -27px; margin-bottom: -15px;" class="md-warn" ng-click="acceptJoin(join.$id,join.uid)">Validate Team Join</md-button>
-												<form ng-submit="deleteJoin(join.$id,join.uid)">
-													<md-button ng-show="isJoinMaker(join) && isOnTeam(selectedIdea) && isOpen(selectedIdea)" style="margin-top: -27px; margin-bottom: -15px;" class="md-warn" ng-click="cancelJoin(join.$id)">Leave Team</md-button>
-												</form>
+												<md-button ng-show="isJoinMaker(join) && isOnTeam(selectedIdea) && isOpen(selectedIdea)" style="margin-top: -27px; margin-bottom: -15px;" class="md-warn" ng-click="resetJoin(join.$id,join.uid).then(cancelJoin(join.$id))">Leave Team</md-button>
 											</span>
 											<br>
 										</div>
@@ -235,3 +236,4 @@
 </div>
 
 <div ng-include="'views/partials/edit.html'"></div>
+<div ng-include="'views/partials/confirmCancel.html'"></div>

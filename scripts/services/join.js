@@ -73,18 +73,6 @@ app.factory('Join', function(FURL, $firebase, $q, Auth, Idea) {
 			return this.getJoin(ideaId, joinId).$remove();
 		},
 
-// -------------- Delete user_joins object on team leave validate ---------
-
-	deleteJoin: function(ideaId, joinId, runnerId) {
-
-		var ideaToBeUpdated = this.getJoin(ideaId, joinId);
-		return ideaToBeUpdated.$update({open: true})
-			.then(function() {
-
-				return $firebase(ref.child('user_joins').child(idea.runner)).$remove();
-			});
-	},
-
 // --------------- Add user_joins object on validate -------------
 
 		acceptJoin: function(ideaId, joinId, runnerId) {
@@ -100,7 +88,25 @@ app.factory('Join', function(FURL, $firebase, $q, Auth, Idea) {
 
 					return Idea.createUserIdeas(ideaId);
 				});
-		}
+		},
+
+		// -------------- Delete user_joins object on team leave validate ---------
+
+			resetJoin: function(ideaId, joinId, runnerId) {
+
+				var ideaToBeUpdated = this.getJoin(ideaId, joinId);
+				return ideaToBeUpdated.$update({open: true})
+					.then(function() {
+
+						var t = Idea.getIdea(ideaId);
+						return t.$update({status: "open", runner: 'null'});
+					})
+					.then(function() {
+
+						console.log('hey');
+						return Idea.replaceUserJoins(ideaId);
+					});
+			}
 
 	};
 

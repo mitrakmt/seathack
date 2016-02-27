@@ -43,6 +43,16 @@ app.factory('Idea', function(FURL, $firebase, Auth) {
 				});
 		},
 
+    replaceUserJoins: function(ideaId) {
+			Idea.getIdea(ideaId)
+				.$asObject()
+				.$loaded()
+				.then(function(idea) {
+
+          return $firebase(ref.child('user_joins').child(idea.runner)).$remove();
+				});
+		},
+
 		editIdea: function(idea) {
 			var t = this.getIdea(idea.$id);
 			return t.$update({title: idea.title, description: idea.description});
@@ -51,6 +61,18 @@ app.factory('Idea', function(FURL, $firebase, Auth) {
 		cancelIdea: function(ideaId) {
 			var t = this.getIdea(ideaId);
 			return t.$remove();
+		},
+
+    replaceIdea: function(ideaId) {
+
+			Idea.getIdea(ideaId)
+				.$asObject()
+				.$loaded()
+				.then(function(idea) {
+
+          console.log("user_idea has been deleted");
+  			     $firebase(ref.child('user_ideas').child(idea.poster)).$remove();
+				});
 		},
 
 		isCreator: function(idea) {
