@@ -99,12 +99,10 @@ app.factory('Join', function(FURL, $firebase, $q, Auth, Idea) {
 					.then(function() {
 
 						var t = Idea.getIdea(ideaId);
-						return t.$update({status: "open", runner: 'null'});
+						return t.$update({status: "open"});
 					})
 					.then(function() {
-
-						console.log('hey');
-						return Idea.replaceUserJoins(ideaId);
+						return Idea.resetUserJoins(ideaId);
 					});
 			}
 

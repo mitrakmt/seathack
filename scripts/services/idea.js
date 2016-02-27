@@ -43,13 +43,12 @@ app.factory('Idea', function(FURL, $firebase, Auth) {
 				});
 		},
 
-    replaceUserJoins: function(ideaId) {
+    resetUserJoins: function(ideaId) {
 			Idea.getIdea(ideaId)
 				.$asObject()
 				.$loaded()
 				.then(function(idea) {
-
-          return $firebase(ref.child('user_joins').child(idea.runner)).$remove();
+           return $firebase(ref.child('user_joins').child(idea.runner)).$remove();
 				});
 		},
 
