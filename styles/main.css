@@ -1,6 +1,7 @@
 body {
   background: #F3F3F3;
   height: auto;
+  width: 100%;
 }
 
 p {
@@ -465,6 +466,40 @@ a, a:hover, a:focus {
       font-size: 60px;
     }
 
+    .right-panel {
+      width: 90%;
+      margin-left: 3%;
+    }
+
+    .logo {
+      height: 1px;
+      width: 1px;
+      visibility: hidden;
+    }
+
+    .img-circle.gravatar {
+      width: 25px;
+      margin-right: 4px;
+    }
+
+    .navbar-nav {
+      margin: none;
+    }
+
+    .md-button {
+      margin: none;
+    }
+
+    .nav .md-primary {
+      font-size: 13px;
+      padding: none;
+      margin: 5px !important;
+    }
+
+    .name-in-navbar {
+      font-size: 13px;
+    }
+
     .md-display-4 {
       font-size: 65px;
     }
@@ -552,6 +587,32 @@ a, a:hover, a:focus {
 @media only screen and (max-width: 500px) {
     .title2 {
       font-size: 45px;
+    }
+
+    .right-panel {
+      width: 90%;
+      margin-left: 5%;
+    }
+
+    .logo {
+      height: 1px;
+      width: 1px;
+      visibility: hidden;
+    }
+
+    .nav .md-primary {
+      font-size: 11px;
+      padding: none;
+      margin: 0 !important;
+    }
+
+    .img-circle.gravatar {
+      width: 25px;
+      margin-right: 4px;
+    }
+
+    .name-in-navbar {
+      font-size: 11px;
     }
 
     .title3 {

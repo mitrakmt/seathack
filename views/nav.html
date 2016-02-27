@@ -1,25 +1,22 @@
 <nav class="navbar brand-color" ng-controller="NavController">
   <div class="container-fluid">
 
-    <span ng-href="#/home">
-      <img class="logo" src="../images/seatwhitelogo.jpg" />
-    </span>
+    <div class="navbar-collapse">
 
-    <div class="collapse navbar-collapse">
-
-      <ul class="nav navbar-nav navbar-left">
+      <ul class="nav navbar-nav navbar-left" layout="row" layout-xs="column">
+        <span ng-href="#/home">
+          <img class="logo" src="../images/seatwhitelogo.jpg" />
+        </span>
         <md-button md-no-ink class="md-primary" ng-href="#/">Home</md-button>
-      </ul>
-      <ul class="nav navbar-nav navbar-left">
         <md-button md-no-ink class="md-primary" ng-href="#/browse">Find an Idea</md-button>
         <md-button md-no-ink class="md-primary" data-toggle="modal" ng-show="signedIn()" data-target="#posModal" ng-href="">Post a Project Idea</md-button>
       </ul>
-      <ul class="nav navbar-nav navbar-right">
+      <ul class="nav navbar-nav navbar-right" layout="row" layout-xs="column">
         <md-button ng-hide="signedIn()" md-no-ink class="md-primary" ng-href="#/login">Login</md-button>
         <md-button ng-hide="signedIn()" md-no-ink class="md-primary" ng-href="#/register">Register</md-button>
 
-        <div ng-show="signedIn()">
-          <button class="md-button brand-color dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+        <div ng-show="signedIn()" style="text-align: center;">
+          <button class="md-button brand-color dropdown-toggle name-in-navbar" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
 
             <img ng-src="{{currentUser.profile.gravatar}}" class="img-circle gravatar">
             &nbsp;
