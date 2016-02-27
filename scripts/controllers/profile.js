@@ -16,6 +16,17 @@ app.controller('ProfileController', function($scope, Profile, Auth) {
 		$scope.numPoster = $scope.ideaPoster.length;
 		$scope.numRunner = $scope.ideaRunner.length;
 
+	})
+
+	Profile.getJoinsForUser(uid).then(function(joins) {
+
+		for(var i = 0; i < joins.length; i++) {
+			joins[i].type? $scope.ideaPoster.push(joins[i]) : $scope.ideaRunner.push(joins[i])
+		}
+
+		$scope.numPoster = $scope.ideaPoster.length;
+		$scope.numRunner = $scope.ideaRunner.length;
+
 	});
 
 });

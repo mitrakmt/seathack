@@ -64,14 +64,11 @@ app.factory('Idea', function(FURL, $firebase, Auth) {
 		},
 
     replaceIdea: function(ideaId) {
-
 			Idea.getIdea(ideaId)
 				.$asObject()
 				.$loaded()
 				.then(function(idea) {
-
-          console.log("user_idea has been deleted");
-  			     $firebase(ref.child('user_ideas').child(idea.poster)).$remove();
+  			    $firebase(ref.child('user_ideas').child(idea.poster)).$remove();
 				});
 		},
 
