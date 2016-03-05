@@ -42,7 +42,7 @@
 	</div>
 
 	<!-- Right Panel -->
-	<div class="col-md-6 right-panel">
+	<div class="col-md-6 right-panel" style="margin-right:-20px;">
 		<br>
 		<br>
 		<div ng-show="listMode">
@@ -166,7 +166,7 @@
     									<span class="joined-user-modal" ng-show="hoverEdit"><a>{{join.skills}}</a></span>
 
 											<span>
-												<md-button ng-show ="isJoinMaker(join) && isOpen(selectedIdea) && !isOnTeam(selectedIdea)" style="margin-top: -27px; margin-bottom: -15px;" class="md-warn" ng-click="acceptJoin(join.$id,join.uid)">Validate Team Join</md-button>
+												<md-button ng-show ="isJoinMaker(join) && isOpen(selectedIdea) && !isOnTeam(selectedIdea)" style="margin-top: -27px; margin-bottom: -15px; background-color:#FF3111; color:white;" class="md-warn" ng-click="acceptJoin(join.$id,join.uid)">Validate Team Join</md-button>
 												<md-button ng-show="isJoinMaker(join) && isOnTeam(selectedIdea) && isOpen(selectedIdea)" style="margin-top: -27px; margin-bottom: -15px;" class="md-warn" ng-click="resetJoin(join.$id,join.uid).then(cancelJoin(join.$id))">Leave Team</md-button>
 											</span>
 											<br>

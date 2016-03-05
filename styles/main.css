@@ -220,7 +220,6 @@ a, a:hover, a:focus {
   position: fixed;
   opacity: .15;
   height: 107%;
-  background-position: center center;
   background-size: cover;
 }
 
@@ -546,6 +545,10 @@ a, a:hover, a:focus {
       padding-bottom: 125px;
     }
 
+    .cover2 {
+      margin-top: -90px;
+    }
+
     .sponsor-miami {
       z-index: 150;
       opacity: 1;
@@ -584,9 +587,21 @@ a, a:hover, a:focus {
 
 }
 
+@media only screen and (max-width: 600px) {
+  .cover2 {
+    margin-top: -165px;
+  }
+}
+
 @media only screen and (max-width: 500px) {
     .title2 {
       font-size: 45px;
+      margin-top: 70px;
+      padding-top: 45px;
+    }
+
+    .cover2 {
+      margin-top: -130px;
     }
 
     .right-panel {
@@ -598,6 +613,10 @@ a, a:hover, a:focus {
       height: 1px;
       width: 1px;
       visibility: hidden;
+    }
+
+    .navbar {
+      width: 100%;
     }
 
     .nav .md-primary {
@@ -655,7 +674,7 @@ a, a:hover, a:focus {
     .bg-1 {
       width: 105%;
       padding: 45px;
-      padding-top: 175px;
+      padding-top: 0px;
     }
 
     .footer {
