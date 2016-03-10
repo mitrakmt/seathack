@@ -456,10 +456,6 @@ a, a:hover, a:focus {
   box-shadow: 0px 1px 6px 0px gray;
 }
 
-
-
-
-
 @media only screen and (max-width: 768px) {
     .title2 {
       font-size: 60px;
@@ -469,6 +465,7 @@ a, a:hover, a:focus {
       width: 90%;
       margin-left: 3%;
     }
+
 
     .logo {
       height: 1px;
@@ -495,8 +492,16 @@ a, a:hover, a:focus {
       margin: 5px !important;
     }
 
+    .ddmenu {
+      text-align: left;
+    }
+
     .name-in-navbar {
       font-size: 13px;
+    }
+
+    .user-profile-in-navbar {
+      text-align: left !important;
     }
 
     .md-display-4 {
@@ -546,7 +551,7 @@ a, a:hover, a:focus {
     }
 
     .cover2 {
-      margin-top: -90px;
+      margin-top: 0;
     }
 
     .sponsor-miami {
@@ -589,7 +594,7 @@ a, a:hover, a:focus {
 
 @media only screen and (max-width: 600px) {
   .cover2 {
-    margin-top: -165px;
+    margin-top: 0;
   }
 }
 
@@ -601,7 +606,7 @@ a, a:hover, a:focus {
     }
 
     .cover2 {
-      margin-top: -130px;
+      margin-top: 0;
     }
 
     .right-panel {
@@ -632,6 +637,7 @@ a, a:hover, a:focus {
 
     .name-in-navbar {
       font-size: 11px;
+      text-align: left !important;
     }
 
     .title3 {

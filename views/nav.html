@@ -1,21 +1,28 @@
 <nav class="navbar brand-color" ng-controller="NavController">
   <div class="container-fluid">
 
-    <div class="navbar-collapse">
+    <div class="navbar-header">
 
-      <ul class="nav navbar-nav navbar-left" layout="row" layout-xs="column">
-        <span ng-href="#/home">
-          <img class="logo" src="../images/seatwhitelogo.jpg" />
-        </span>
-        <md-button md-no-ink class="md-primary" ng-href="#/">Home</md-button>
-        <md-button md-no-ink class="md-primary" ng-href="#/browse">Find an Idea</md-button>
-        <md-button md-no-ink class="md-primary" data-toggle="modal" ng-show="signedIn()" data-target="#posModal" ng-href="">Post a Project Idea</md-button>
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navigation-collapse" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <img class="logo navbar-brand" src="../images/seatwhitelogo.jpg" />
+    </div>
+
+    <div class="collapse navbar-collapse" id="navigation-collapse">
+      <ul class="nav navbar-nav">
+        <li><a ng-href="#/home" md-no-ink class="md-primary">Home</a></li>
+        <li><a ng-show="signedIn()" md-no-ink class="md-primary" ng-href="#/browse">Find an Idea</a></li>
+        <li><a data-toggle="modal" ng-show="signedIn()"  md-no-ink data-target="#posModal" class="md-primary" ng-href="#/browse">Post a Project Idea</a></li>
       </ul>
-      <ul class="nav navbar-nav navbar-right" layout="row" layout-xs="column">
-        <md-button ng-hide="signedIn()" md-no-ink class="md-primary" ng-href="#/login">Login</md-button>
-        <md-button ng-hide="signedIn()" md-no-ink class="md-primary" ng-href="#/register">Register</md-button>
 
-        <div ng-show="signedIn()" style="text-align: center;">
+      <ul class="nav navbar-nav navbar-right">
+        <li><a ng-hide="signedIn()" md-no-ink class="md-primary" ng-href="#/login">Login</a></li>
+        <li><a ng-hide="signedIn()" md-no-ink class="md-primary" ng-href="#/register">Register</a></li>
+        <div ng-show="signedIn()" style="text-align: center;" class="user-profile-in-navbar">
           <button class="md-button brand-color dropdown-toggle name-in-navbar" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
 
             <img ng-src="{{currentUser.profile.gravatar}}" class="img-circle gravatar">
@@ -43,13 +50,12 @@
               </md-button>
             </li>
           </ul>
-        </div>
 
-    </ul>
+        </ul>
+      </div>
     </div>
-  </div>
 
-  <div ng-show="signedIn()" ng-include="'views/partials/changepass.html'"></div>
-  <div ng-show="signedIn()" ng-include="'views/partials/post.html'"></div>
+    <div ng-show="signedIn()" ng-include="'views/partials/changepass.html'"></div>
+    <div ng-show="signedIn()" ng-include="'views/partials/post.html'"></div>
 
-</nav>
+  </nav>
