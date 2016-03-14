@@ -8,6 +8,10 @@ p {
   margin: 3px;
 }
 
+.row {
+  margin-right: 0;
+}
+
 a, a:hover, a:focus {
   color: #121515;
 }
@@ -295,8 +299,7 @@ a, a:hover, a:focus {
   padding-top: 5px;
   text-align: center;
   background: transparent;
-  width: 103%;
-  margin-left: -20px;
+  width: 100%;
   opacity: 1;
 }
 
@@ -323,12 +326,11 @@ a, a:hover, a:focus {
 /* Background */
 
 .bg-1 {
-  width: 103%;
+  width: 100%;
   height: 100%;
+  margin: 0;
   padding: 100px;
   padding-top: 200px;
-  margin-right: none;
-  margin-left: -19px;
   margin-top: -75px;
   margin-bottom: none;
   background: -webkit-linear-gradient(black, #6292F0);
@@ -338,11 +340,10 @@ a, a:hover, a:focus {
   background-position: center center;
 }
 .bg-2 {
-  width: 103%;
+  width: 100%;
   height: 100%;
+  margin: 0;
   padding: 100px;
-  margin: none;
-  margin-left: -19px;
   background: -webkit-linear-gradient(#6292F0, #3c3Da5);
   background: -o-linear-gradient(#6292F0, #3c3Da5);
   background: -moz-linear-gradient(#6292F0, #3c3Da5);
@@ -350,11 +351,10 @@ a, a:hover, a:focus {
   background-size: cover;
 }
 .bg-3 {
-  width: 103%;
+  width: 100%;
   height: 100%;
+  margin: 0;
   padding: 100px;
-  margin-right: none;
-  margin-left: -19px;
   margin-top: none;
   margin-bottom: none;
   background: -webkit-linear-gradient(#3c3Da5, #6f2d52);
@@ -364,12 +364,11 @@ a, a:hover, a:focus {
   background-size: cover;
 }
 .bg-4 {
-  width: 103%;
+  width: 100%;
   height: 100%;
   padding: 100px;
   padding-bottom: 250px;
-  margin-right: none;
-  margin-left: -19px;
+  margin: 0;
   margin-top: none;
   margin-bottom: -110px;
   opacity: 1;
@@ -521,7 +520,7 @@ a, a:hover, a:focus {
     }
 
     .bg-1 {
-      width: 103%;
+      width: 100%;
       padding: 100px;
       padding-top: 175px;
       padding-left: 25px;
@@ -529,21 +528,21 @@ a, a:hover, a:focus {
     }
 
     .bg-2 {
-      width: 103%;
+      width: 100%;
       padding: 100px;
       padding-left: 25px;
       padding-right: 25px;
     }
 
     .bg-3 {
-      width: 103%;
+      width: 100%;
       padding: 100px;
       padding-left: 25px;
       padding-right: 25px;
     }
 
     .bg-4 {
-      width: 103%;
+      width: 100%;
       padding: 100px;
       padding-left: 25px;
       padding-right: 25px;
@@ -599,6 +598,7 @@ a, a:hover, a:focus {
 }
 
 @media only screen and (max-width: 500px) {
+
     .title2 {
       font-size: 45px;
       margin-top: 70px;
@@ -606,7 +606,7 @@ a, a:hover, a:focus {
     }
 
     .cover2 {
-      margin-top: 0;
+      margin-top: -45px;
     }
 
     .right-panel {
@@ -678,27 +678,27 @@ a, a:hover, a:focus {
     }
 
     .bg-1 {
-      width: 105%;
+      width: 100%;
       padding: 45px;
       padding-top: 0px;
     }
 
     .footer {
-      width: 105%;
+      width: 100%;
     }
 
     .bg-2 {
-      width: 105%;
+      width: 100%;
       padding: 45px;
     }
 
     .bg-3 {
-      width: 105%;
+      width: 100%;
       padding: 45px;
     }
 
     .bg-4 {
-      width: 105%;
+      width: 100%;
       padding: 45px;
       padding-bottom: 100px;
     }
