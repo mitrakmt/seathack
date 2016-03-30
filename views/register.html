@@ -15,6 +15,10 @@
         <input type="text" name="university" ng-model="user.university" required>
       </md-input-container>
       <md-input-container class="md-block" flex-gt-sm>
+        <label>Will you attend on-site or remotely?</label>
+        <input type="text" name="attending" ng-model="user.attending" required>
+      </md-input-container>
+      <md-input-container class="md-block" flex-gt-sm>
         <label>Email Address</label>
         <input required type="email" name="emailAddress" ng-model="user.email" ng-pattern="/^.+@.+\..+$/">
         <div ng-messages="registerForm.email.$error" role="alert">

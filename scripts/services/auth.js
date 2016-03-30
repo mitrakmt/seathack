@@ -14,7 +14,8 @@ app.factory('Auth', function(FURL, $firebaseAuth, $firebase) {
         email: user.email,
         gravatar: get_gravatar(user.email, 40),
 				skills: user.skills,
-				university: user.university
+				university: user.university,
+				attending: user.attending
       };
 
       var profileRef = $firebase(ref.child('profile'));
@@ -27,7 +28,8 @@ app.factory('Auth', function(FURL, $firebaseAuth, $firebase) {
         email: user.email,
         gravatar: get_gravatar(user.email, 40),
 				skills: user.skills,
-				university: user.university
+				university: user.university,
+				attending: user.attending
       };
 
       var profileRef = $firebase(ref.child('profile'));
@@ -45,7 +47,7 @@ app.factory('Auth', function(FURL, $firebaseAuth, $firebase) {
     },
 
     register: function(user) {
-      return auth.$createUser({email: user.email, password: user.password, skills: user.skills, university: user.university})
+      return auth.$createUser({email: user.email, password: user.password, skills: user.skills, university: user.university, attending: user.attending })
         .then(function() {
 			    // authenticate for Firebase permissions
           return Auth.login(user);
